@@ -2,3 +2,13 @@ Tuntikirjanpito
 
 30.10.15
 1,5h - 1.deadlinen asioiden hoito
+
+3.11.15
+n.4h laiskasti asian pyörittelyä, rakenteen hahmottelua.
+
+4.11.15
+10h peruspalikoiden koodaus, 6 tunnin jälkeen kaikki uusiksi
+
+5.11.15
+3h Junitin opiskelu, debugger. Testien aloitus
+
