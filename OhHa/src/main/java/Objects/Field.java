@@ -6,10 +6,7 @@
 package Objects;
 
 import java.util.ArrayList;
-
-
-
-
+//tärkeä kommentti
 //asdf
 /**
  *
