@@ -11,4 +11,7 @@ n.4h laiskasti asian pyörittelyä, rakenteen hahmottelua.
 
 5.11.15
 3h Junitin opiskelu, debugger. Testien aloitus
+5h testien tekemistä + perus runkoa
 
+6.11.15
+3h Luokkakaavio ja pitin kanssa taistelua.
