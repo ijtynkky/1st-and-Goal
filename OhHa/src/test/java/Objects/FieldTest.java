@@ -47,7 +47,7 @@ public class FieldTest {
         System.out.println("addPlayer");
         PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
         int[] alkupaikka1 = {3, 15};
-        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, 879987, true);
+        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, "879987", true);
         Player player = new Player(pManning, testiOff);
         System.out.println("Payton on QB");
 
@@ -63,7 +63,7 @@ public class FieldTest {
         System.out.println("addPlayer");
         PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
         int[] alkupaikka1 = {5, 5};
-        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, 879987, true);
+        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, "879987", true);
         Player player = new Player(pManning, testiOff);
         System.out.println("Payton on QB");
 
@@ -83,13 +83,13 @@ public class FieldTest {
 
         PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
         int[] alkupaikka1 = {5, 5};
-        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, 879987, true);
+        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, "879987", true);
         Player player = new Player(pManning, testiOff);
         System.out.println("Payton on QB");
 
         PlayerInfo eManning = new PlayerInfo("Payton Manning", 10);
         int[] alkupaikka2 = {5, 6};
-        PlayerStrategy testiOff2 = new PlayerStrategy(alkupaikka1, 879987, true);
+        PlayerStrategy testiOff2 = new PlayerStrategy(alkupaikka1, "879987", true);
         Player player2 = new Player(eManning, testiOff2);
         System.out.println("Eli on QB");
 

@@ -31,7 +31,7 @@ public class Player {
         return this.location;
     }
 
-    public int getRoute() {
+    public String getRoute() {
         return this.strategy.getRoute();
     }
 
@@ -89,6 +89,34 @@ public class Player {
             this.location[0] += 1;
         }
         return this.location;
+    }
+
+    public int[] tryMovePlayer(int direction) {
+        int y = this.location[1];
+        int x = this.location[0];
+        if (direction == 1) {
+            x -= 1;
+            y -= 1;
+        } else if (direction == 2) {
+            y -= 1;
+        } else if (direction == 3) {
+            x += 1;
+            y -= 1;
+        } else if (direction == 4) {
+            x -= 1;
+        } else if (direction == 6) {
+            x += 1;
+        } else if (direction == 7) {
+            y += 1;
+            x -= 1;
+        } else if (direction == 8) {
+            y += 1;
+        } else if (direction == 9) {
+            y += 1;
+            x += 1;
+        }
+        int[] newLocation = {x, y};
+        return newLocation;
     }
 
 }

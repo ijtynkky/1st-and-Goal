@@ -19,8 +19,8 @@ public class RouteReader {
 
     public int readRoute(Player player) {
         int i = player.getRoateMoveCounter();
-        String readRoute = "" + player.getRoute();
-        if (readRoute.length() < i) {
+        String readRoute = player.getRoute();
+        if (readRoute.length() <= i) {
             return 999;
         }
         int readMove = Integer.parseInt(readRoute.charAt(i) + "");

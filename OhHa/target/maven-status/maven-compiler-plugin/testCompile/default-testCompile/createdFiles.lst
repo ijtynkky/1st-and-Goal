@@ -1,3 +1,4 @@
-Objects\PlayerTest.class
 PlayerLogic\PlayerStrategyTest.class
 Objects\FieldTest.class
+Objects\PlayerTest.class
+PlayerLogic\PlayerMoverTest.class

@@ -13,7 +13,7 @@ public class Main {
 
         PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
         int[] alkupaikka1 = {1, 5};
-        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, 879987, true);
+        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, "879987", true);
         Player qb = new Player(pManning, testiOff);
         System.out.println("pelaajat " + kentta.getPlayers().toString());
         kentta.addPlayer(qb);

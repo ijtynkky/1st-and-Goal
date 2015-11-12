@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="23" failures="0" name="Objects.PlayerTest" time="0.007" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="PlayerLogic.PlayerMoverTest" time="0.185" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_65\jre\bin"/>
@@ -14,6 +14,7 @@
     <property name="user.country" value="FI"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value=""/>
+    <property name="test" value="PlayerLogic.PlayerMoverTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="C:\Users\I\Documents\GitHub\1st-and-Goal\OhHa"/>
     <property name="java.runtime.version" value="1.8.0_65-b17"/>
@@ -44,7 +45,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_65\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Users\I\AppData\Roaming\.tmcbeans\dev\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 clean install"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=PlayerLogic.PlayerMoverTest -Dmaven.ext.class.path=C:\Users\I\AppData\Roaming\.tmcbeans\dev\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 surefire:test"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="fi"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -61,27 +62,10 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Objects.PlayerTest" name="testIsBallCarrier" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testMovePlayer0" time="0.001"/>
-  <testcase classname="Objects.PlayerTest" name="testMovePlayer1" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testMovePlayer2" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testMovePlayer3" time="0.001"/>
-  <testcase classname="Objects.PlayerTest" name="testMovePlayer4" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testMovePlayer5" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testMovePlayer6" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testMovePlayer7" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testMovePlayer8" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testMovePlayer9" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testGetLocation" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testTakeBall" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testTryMovePlayer1" time="0.001"/>
-  <testcase classname="Objects.PlayerTest" name="testTryMovePlayer2" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testTryMovePlayer3" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testTryMovePlayer4" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testTryMovePlayer5" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testTryMovePlayer6" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testTryMovePlayer7" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testTryMovePlayer8" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testTryMovePlayer9" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testGiveBall" time="0"/>
+  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMovePlayerOneStep" time="0.029"/>
+  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMoveRouteYksiVasemmalle" time="0.002"/>
+  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMoveRouteVasenOikee" time="0.001"/>
+  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMovePlayerOneStep2" time="0.027"/>
+  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMovePlayerOneStep3" time="0.02"/>
+  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMovePlayerOneStep4" time="0.02"/>
 </testsuite>

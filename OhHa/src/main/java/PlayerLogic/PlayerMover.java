@@ -24,14 +24,16 @@ public class PlayerMover {
 
     public void moveRoute(Player player) {
         this.movePlayerOneStep(player, reader.readRoute(player));
+        player.routeMoved();
     }
 
-    private boolean movePlayerOneStep(Player player, int directrion) {
-        int[] tryToMove = player.movePlayer(directrion);
+    public boolean movePlayerOneStep(Player player, int directrion) {
+
+        int[] tryToMove = player.tryMovePlayer(directrion);
         if (field.partOfField(tryToMove) == 0) {                        //if out of field
             return false;
         }
-        if (!field.getPlayerLocations().contains(tryToMove)) {          //If there is no other player in the same square
+        if (field.getPlayerInThisPlace(tryToMove) == null) {          //If there is no other player in the same square
             player.movePlayer(directrion);
             return true;
         } else {

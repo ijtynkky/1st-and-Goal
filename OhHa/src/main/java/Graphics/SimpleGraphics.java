@@ -11,8 +11,8 @@ import PlayerLogic.*;
 
 public class SimpleGraphics {
 
-    public void drawSmallField(Field field) {
-        int i = field.getSize()[1] + 6;
+    public void drawSmallField(Field field) {   //HUOM field luulee että
+        int i = field.getSize()[1] + 6;         // end zone on 10 pitkä
         while (i != 0) {
             this.DrawRow(field, i);
             System.out.println("");
@@ -32,7 +32,7 @@ public class SimpleGraphics {
      6 = Hashmark
      */
 
-    public void DrawRow(Field field, int y) {
+    private void DrawRow(Field field, int y) {
         int i = 1;
         int x = field.getSize()[0] + 1;
         while (i < x) {

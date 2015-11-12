@@ -39,7 +39,7 @@ public class PlayerStrategyTest {
     public void testGetStartingLocation() {
         System.out.println("getStartingLocation");
         int[] alku = {5, 5};
-        PlayerStrategy testi = new PlayerStrategy(alku, 666, true);
+        PlayerStrategy testi = new PlayerStrategy(alku, "879987", true);
         PlayerStrategy instance = testi;
         int[] expResult = {5, 5};
         int[] result = instance.getStartingLocation();
@@ -53,10 +53,10 @@ public class PlayerStrategyTest {
     public void testGetRoute() {
         System.out.println("getRoute");
         int[] alku = {5, 5};
-        PlayerStrategy testi = new PlayerStrategy(alku, 666, true);
+        PlayerStrategy testi = new PlayerStrategy(alku, "879987", true);
         PlayerStrategy instance = testi;
-        int expResult = 666;
-        int result = instance.getRoute();
+        String expResult = "879987";
+        String result = instance.getRoute();
         assertEquals(expResult, result);
     }
 
