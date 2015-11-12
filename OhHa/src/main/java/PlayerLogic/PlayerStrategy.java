@@ -21,36 +21,36 @@ public class PlayerStrategy {
     private int route;
     private boolean isOffensivePlayer;
     private int[] goal;
-    private char drawChar; //what ascii wark the program will draw
+    private String icon; //what ascii wark the program will draw
 
     public PlayerStrategy(int[] starts, int route, int[] goal, boolean offensivePlayer) {
         this.goal = goal;
         this.route = route;
         this.startingLocation = starts;
         this.isOffensivePlayer = offensivePlayer;
-        this.drawChar = "?".charAt(0);
+        this.icon = "?";
     }
 
     public PlayerStrategy(int[] starts, int route, boolean offensivePlayer) {
         this.route = route;
         this.startingLocation = starts;
         this.isOffensivePlayer = offensivePlayer;
-        this.drawChar = "?".charAt(0);
+        this.icon = "?";
     }
 
-    public PlayerStrategy(int[] starts, int route, boolean offensivePlayer, char c) {
+    public PlayerStrategy(int[] starts, int route, boolean offensivePlayer, String c) {
         this.route = route;
         this.startingLocation = starts;
         this.isOffensivePlayer = offensivePlayer;
-        this.drawChar = c;
+        this.icon = c;
     }
 
-    public PlayerStrategy(int[] starts, int route, int[] goal, boolean offensivePlayer, char c) {
+    public PlayerStrategy(int[] starts, int route, int[] goal, boolean offensivePlayer, String c) {
         this.goal = goal;
         this.route = route;
         this.startingLocation = starts;
         this.isOffensivePlayer = offensivePlayer;
-        this.drawChar = c;
+        this.icon = c;
     }
 
     public int[] getStartingLocation() {
@@ -69,7 +69,7 @@ public class PlayerStrategy {
         return this.isOffensivePlayer;
     }
 
-    public char getDrawChar() {
-        return this.drawChar;
+    public String getIcon() {
+        return this.icon;
     }
 }

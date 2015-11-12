@@ -36,6 +36,5 @@ public class PlayerInfo {
     public int getTD() {
         return this.touchdowns;
     }
-    
-    
+
 }

@@ -43,6 +43,10 @@ public class Player {
         return this.roateMoveCounter;
     }
 
+    public String getPlayerIcon() {
+        return "" + this.strategy.getIcon();
+    }
+
     public boolean isBallCarrier() {
         return this.hasBall;
     }

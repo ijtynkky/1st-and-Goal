@@ -3,6 +3,8 @@ Objects\PlayerInfo.class
 PlayerLogic\PlayerStrategy.class
 Objects\Player.class
 Objects\Team.class
+Graphics\SimpleGraphics.class
+ohha\ohha\Main.class
 GameLogic\PlayDown.class
 Objects\Field.class
 PlayerLogic\RouteReader.class

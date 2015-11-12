@@ -8,6 +8,7 @@ package Objects;
 import java.util.ArrayList;
 //tärkeä kommentti
 //asdf
+
 /**
  *
  * @author I
@@ -20,7 +21,7 @@ public class Field {
     private ArrayList<Player> players;
 
     public Field(int x, int y) {
-        this.lineOfSkirmish = 10;
+        this.lineOfSkirmish = this.lenght - 10;
         this.lenght = y;
         this.widht = x;
         this.players = new ArrayList();
@@ -73,15 +74,17 @@ public class Field {
      0 = totaly out, no go
      1 = normal field
      2 = Endzone
+     4 = LOS 
      TO DO grafiikkaa varten, tee myöhemmin:
-     3 = out of bounds
-     4 = LOS
+     3 = out of bounds     
      5 = 10 yard
      6 = Hashmark
      */
     public int partOfField(int[] square) {
-        if (square[0] > 0 && square[0] < this.lenght + 1) {                         //If square is between sidelines
-            if ((square[1] > 0 && square[1] < this.lenght + 1)) {                   //if is between endlines
+        if (square[0] > 0 && square[0] < this.widht + 1) {                         //If square is between sidelines
+            if (square[1] == this.lineOfSkirmish) {
+                return 4;
+            } else if ((square[1] > 0 && square[1] < this.lenght + 1)) {                   //if is between endlines
                 return 1;
             } else if (square[1] > this.lenght && square[1] < this.lenght + 11) {   //if is in endzone
                 return 2;

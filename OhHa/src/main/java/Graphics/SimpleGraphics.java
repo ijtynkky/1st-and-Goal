@@ -5,24 +5,53 @@
  */
 package Graphics;
 
-import Objects.Field;
+import Graphics.*;
+import Objects.*;
+import PlayerLogic.*;
 
 public class SimpleGraphics {
 
-    public void drawSmallField(Field field){
-        int i = 1;
-        while(i<field.getSize()[1]+5) {
+    public void drawSmallField(Field field) {
+        int i = field.getSize()[1] + 6;
+        while (i != 0) {
             this.DrawRow(field, i);
+            System.out.println("");
+            i--;
         }
     }
-    
-    public void DrawRow(Field field, int y){
+    /*
+     field.partOfField(square) = int 
+     Returns what type the squre is
+     0 = totaly out, no go
+     1 = normal field
+     2 = Endzone
+     TO DO grafiikkaa varten, tee myöhemmin:
+     3 = out of bounds
+     4 = LOS
+     5 = 10 yard
+     6 = Hashmark
+     */
+
+    public void DrawRow(Field field, int y) {
         int i = 1;
-        while (i<field.getSize()[0]+1) {
-            int[] square = {i,y};
-            ///** JOS PELAAJA if (field.)
-            
+        int x = field.getSize()[0] + 1;
+        while (i < x) {
+            int[] square = {i, y};
+            Player player = field.getPlayerInThisPlace(square);
+            if (player != null) {
+                System.out.print(player.getPlayerIcon());
+            } else {
+                int fieldType = field.partOfField(square);
+                if (fieldType == 1) {
+                    System.out.print(",");
+                } else if (fieldType == 2) {
+                    System.out.print("$");
+                } else if (fieldType == 4) {
+                    System.out.print("-");
+                }
+            }
+            i++;
         }
-        
+
     }
 }
