@@ -21,8 +21,8 @@ public class Field {
     private ArrayList<Player> players;
 
     public Field(int x, int y) {
-        this.lineOfSkirmish = this.lenght - 10;
         this.lenght = y;
+        this.lineOfSkirmish = this.lenght - 9;
         this.widht = x;
         this.players = new ArrayList();
     }

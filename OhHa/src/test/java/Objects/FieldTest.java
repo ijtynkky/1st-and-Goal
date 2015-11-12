@@ -123,7 +123,7 @@ public class FieldTest {
     public void testPartOfField1() {
         System.out.println("partOfField");
         int[] square = {1, 1};
-        Field instance = new Field(10, 10);
+        Field instance = new Field(10, 9);
         int expResult = 1;
         int result = instance.partOfField(square);
         assertEquals(expResult, result);

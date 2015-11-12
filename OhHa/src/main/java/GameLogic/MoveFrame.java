@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  * Tämä luokka tullaan tarvitsemaan peliä laajentaessa. yhden Framen sisällä
- * tulee voida tapahtua monta eri juttua, ja ne tullaan koodaamaan tänne, eikä
+ * tulee voida tapahtua monta eri testiä/tapahtumaa, ja ne tullaan koodaamaan tänne, eikä
  * play Downiin
  *
  * @author I

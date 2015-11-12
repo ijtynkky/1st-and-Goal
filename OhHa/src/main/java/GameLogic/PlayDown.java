@@ -5,6 +5,7 @@
  */
 package GameLogic;
 
+import Graphics.SimpleGraphics;
 import Objects.Field;
 
 /**
@@ -21,13 +22,18 @@ public class PlayDown {
     public void move(Field field) {
         this.moveFrame = new MoveFrame(field);
         boolean continuePlay = true;
+        int i = 0;
         while (continuePlay) {
-            int i = 0;
             this.moveFrame.move();
+            if (this.moveFrame.checkTD()) {
+                System.out.println("TOUCHDOWN!!!!!!");
+            }
             continuePlay = !this.moveFrame.checkTD();
             i++;
+            SimpleGraphics piirturi = new SimpleGraphics();
+            piirturi.drawSmallField(field);
             if (i > 20) {
-                break;
+                continuePlay = false;
             }
         }
     }
