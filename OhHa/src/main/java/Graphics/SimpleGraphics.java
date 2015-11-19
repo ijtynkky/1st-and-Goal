@@ -11,8 +11,8 @@ import PlayerLogic.*;
 
 public class SimpleGraphics {
 
-    public void drawSmallField(Field field) {   //HUOM field luulee että
-        int i = field.getSize()[1] + 6;         // end zone on 10 pitkä
+    public void drawField(Field field) {
+        int i = field.getSize()[1] + 10;
         while (i != 0) {
             this.DrawRow(field, i);
             System.out.println("");
@@ -25,9 +25,9 @@ public class SimpleGraphics {
      0 = totaly out, no go
      1 = normal field
      2 = Endzone
+     4 = LOS
      TO DO grafiikkaa varten, tee myöhemmin:
      3 = out of bounds
-     4 = LOS
      5 = 10 yard
      6 = Hashmark
      */

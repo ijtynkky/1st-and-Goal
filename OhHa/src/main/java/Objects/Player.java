@@ -18,6 +18,8 @@ public class Player {
     private int[] location;
     private int roateMoveCounter;
     private boolean hasBall;
+    private int movingMode;
+    private Player playerToFollow;
 
     public Player(PlayerInfo info, PlayerStrategy strategy) {
         this.hasBall = false;
@@ -25,6 +27,8 @@ public class Player {
         this.location = strategy.getStartingLocation();
         this.playerInfo = info;
         this.roateMoveCounter = 0;
+        this.movingMode = 0;
+        this.playerToFollow = null;
     }
 
     public int[] getLocation() {
@@ -57,6 +61,31 @@ public class Player {
 
     public void takeBall() {
         this.hasBall = false;
+    }
+
+    public boolean askIsOffence() {
+        return this.strategy.getIsOffensive();
+    }
+
+    public int getMovingMode() {
+        return this.movingMode;
+    }
+
+    public void setMovingMode(int i) {
+        this.movingMode = i;
+    }
+
+    public void setPlayerToFollow(Player player) {
+        this.playerToFollow = player;
+    }
+
+    public Player getPlayerToFollow() {
+        return this.playerToFollow;
+    }
+
+    @Override
+    public String toString() {
+        return this.playerInfo.toString();
     }
 
     /*MOVING

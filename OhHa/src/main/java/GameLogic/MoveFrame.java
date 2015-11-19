@@ -23,17 +23,14 @@ public class MoveFrame {
     private PlayerMover mover;
 
     public MoveFrame(Field field) {
-        this.gameField = field;
+//        this.gameField = field;
         this.mover = new PlayerMover(field);
     }
 
-    public void move() {
+    public void move(Field gameField) {
         for (Player player : gameField.getPlayers()) {
-            mover.moveRoute(player);
+            mover.playerMove(player);
         }
     }
 
-    public boolean checkTD() {
-        return (2 == (this.gameField.partOfField(this.gameField.playerWIthBall().getLocation())));
-    }
 }

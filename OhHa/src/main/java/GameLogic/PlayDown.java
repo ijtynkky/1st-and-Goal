@@ -15,27 +15,36 @@ import Objects.Field;
 public class PlayDown {
 
     private MoveFrame moveFrame;
+    private Field field;
+    private SimpleGraphics piirturi;
 
-    public PlayDown() {
+    public PlayDown(Field field) {
+        this.moveFrame = new MoveFrame(field);
+        this.field = field;
+        this.piirturi = new SimpleGraphics();
     }
 
-    public void move(Field field) {
-        this.moveFrame = new MoveFrame(field);
+    public void move() {
+        piirturi.drawField(field);
+        System.out.println("PLAY");
         boolean continuePlay = true;
         int i = 0;
         while (continuePlay) {
-            this.moveFrame.move();
-            if (this.moveFrame.checkTD()) {
+            this.moveFrame.move(this.field);
+            if (this.checkTD(this.field)) {
                 System.out.println("TOUCHDOWN!!!!!!");
             }
-            continuePlay = !this.moveFrame.checkTD();
+            continuePlay = !this.checkTD(this.field);
             i++;
-            SimpleGraphics piirturi = new SimpleGraphics();
-            piirturi.drawSmallField(field);
+            this.piirturi.drawField(this.field);
             if (i > 20) {
                 continuePlay = false;
             }
         }
+    }
+
+    public boolean checkTD(Field gameField) {
+        return (2 == (this.field.partOfField(this.field.playerWIthBall().getLocation())));
     }
 
 }

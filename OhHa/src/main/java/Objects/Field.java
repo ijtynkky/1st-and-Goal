@@ -27,7 +27,7 @@ public class Field {
         this.players = new ArrayList();
     }
 
-    public void addPlayer(Player player) {
+    public void addPlayer(Player player) { //testejä varten, älä käytä!
         if (this.partOfField(player.getLocation()) == 1) {
             this.players.add(player);
         }
