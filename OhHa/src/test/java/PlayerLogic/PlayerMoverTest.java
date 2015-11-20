@@ -211,11 +211,11 @@ public class PlayerMoverTest {
 
         field.addPlayer(qb);
         System.out.println("Payton on kentällä");
-        piirturi.drawSmallField(field);
+        piirturi.drawField(field);
         Player instance = qb;
         boolean expResult = true;
         boolean result = testMover.movePlayerOneStep(instance, 2);
-        piirturi.drawSmallField(field);
+        piirturi.drawField(field);
         assertEquals(expResult, result);
     }
 
@@ -236,11 +236,11 @@ public class PlayerMoverTest {
 
         field.addPlayer(qb);
         System.out.println("Payton on kentällä");
-        piirturi.drawSmallField(field);
+        piirturi.drawField(field);
         Player instance = qb;
         boolean expResult = false;
         boolean result = testMover.movePlayerOneStep(instance, 2);
-        piirturi.drawSmallField(field);
+        piirturi.drawField(field);
         assertEquals(expResult, result);
     }
 
@@ -261,11 +261,11 @@ public class PlayerMoverTest {
 
         field.addPlayer(qb);
         System.out.println("Payton on kentällä");
-        piirturi.drawSmallField(field);
+        piirturi.drawField(field);
         Player instance = qb;
         boolean expResult = true;
         boolean result = testMover.movePlayerOneStep(instance, 8);
-        piirturi.drawSmallField(field);
+        piirturi.drawField(field);
         assertEquals(expResult, result);
     }
 
@@ -286,15 +286,15 @@ public class PlayerMoverTest {
 
         field.addPlayer(qb);
         System.out.println("Payton on kentällä");
-        piirturi.drawSmallField(field);
+        piirturi.drawField(field);
         testMover.movePlayerOneStep(qb, 8);
-        piirturi.drawSmallField(field);
+        piirturi.drawField(field);
         testMover.movePlayerOneStep(qb, 8);
-        piirturi.drawSmallField(field);
+        piirturi.drawField(field);
         Player instance = qb;
         boolean expResult = true;
         boolean result = testMover.movePlayerOneStep(instance, 8);
-        piirturi.drawSmallField(field);
+        piirturi.drawField(field);
         assertEquals(expResult, result);
     }
 

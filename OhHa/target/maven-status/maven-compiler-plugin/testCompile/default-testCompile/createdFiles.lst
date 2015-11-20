@@ -1,5 +1,6 @@
 PlayerLogic\PlayerStrategyTest.class
 Objects\FieldTest.class
 Objects\PlayerTest.class
+tools\TeamCreatorTest.class
 PlayerLogic\PlayerMoverTest.class
 PlayerLogic\RouteReaderTest.class

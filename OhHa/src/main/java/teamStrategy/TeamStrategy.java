@@ -29,9 +29,9 @@ public class TeamStrategy {
      6   RT
      7   RB
      8   TE
-     9   WR1
-     10  WR2
-     11  WR3
+     9   WR
+     10  WR
+     11  WR
      */
 
     public TeamStrategy() {

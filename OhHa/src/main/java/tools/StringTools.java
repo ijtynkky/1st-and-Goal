@@ -27,6 +27,14 @@ public class StringTools {
         }
         return returnString;
     }
+
+    public int readNumber(String string, int startIndex, int endIndex) {
+        String intString = "";
+        while (endIndex != startIndex - 1) {
+            intString = string.charAt(endIndex) + intString;
+            endIndex--;
+        }
+        return Integer.parseInt(intString);
+
+    }
 }
-
-

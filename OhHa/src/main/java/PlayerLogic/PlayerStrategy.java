@@ -23,6 +23,7 @@ public class PlayerStrategy {
     private int[] goal;
     private String icon; //what ascii mark the program will draw
 
+    
     public PlayerStrategy(int[] starts, String route, int[] goal, boolean offensivePlayer) {
         this.goal = goal;
         this.route = route;

@@ -11,7 +11,7 @@ public class Main {
 
         Field kentta = new Field(53, 20);
 
-        PlayerInfo pManning = new PlayerInfo("Payton Manning", 18, "");
+        PlayerInfo pManning = new PlayerInfo("Peyton Manning", 18, "");
         int[] alkupaikka1 = {27, 10};
         PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, "879987444448888888888", true, "@");
         Player qb = new Player(pManning, testiOff);

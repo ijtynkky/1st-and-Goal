@@ -15,3 +15,18 @@ n.4h laiskasti asian pyörittelyä, rakenteen hahmottelua.
 
 6.11.15
 3h Luokkakaavio ja pitin kanssa taistelua.
+
+18.11.15
+4h koodasin juttuja. salee myös 19.11 koodasin jotain
+
+20.11.15
+1h istuin baarissa ja piiretlin luokkakaavioita 
+
+25.11.15
+3h koodausta
+
+26.11.15
+3h koodausta
+
+27.11.15
+2h koodausta
