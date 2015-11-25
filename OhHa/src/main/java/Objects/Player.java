@@ -6,49 +6,53 @@
 package Objects;
 
 import PlayerLogic.PlayerStrategy;
+import PlayerLogic.PlayerStrategy;
+import java.util.ArrayList;
 
-/**
- *
- * @author I
- */
 public class Player {
+    /*
+    
+     */
 
     private PlayerStrategy strategy;
     private PlayerInfo playerInfo;
     private int[] location;
-    private int roateMoveCounter;
     private boolean hasBall;
-    private int movingMode;
-    private Player playerToFollow;
+    private final boolean isOffensivePlayer;
+    private final char playerIcon;
+    //private ArrayList<int[]> lastFiveLocations;
 
     public Player(PlayerInfo info, PlayerStrategy strategy) {
         this.hasBall = false;
         this.strategy = strategy;
-        this.location = strategy.getStartingLocation();
+        this.location = null;
         this.playerInfo = info;
-        this.roateMoveCounter = 0;
-        this.movingMode = 0;
-        this.playerToFollow = null;
+        this.playerIcon = strategy.getIcon();
+        this.isOffensivePlayer = strategy.getIsOffensive();
+        //  this.lastFiveLocations = new ArrayList();
+    }
+
+    //This is just to get the information to this.strategy.
+    //this.strategy.playerMoved does mostly moveCounter++;
+    //int[] where is just for further aplications
+    public void playerMoved(int[] where) {
+        this.strategy.playerMoved(where);
     }
 
     public int[] getLocation() {
         return this.location;
     }
 
-    public String getRoute() {
-        return this.strategy.getRoute();
-    }
-
-    public void routeMoved() {
-        this.roateMoveCounter++;
-    }
-
-    public int getRoateMoveCounter() {
-        return this.roateMoveCounter;
-    }
-
     public String getPlayerIcon() {
-        return "" + this.strategy.getIcon();
+        return "" + this.playerIcon;
+    }
+
+    public int[] getStartingLocation() {
+        return this.strategy.getStartingLocation();
+    }
+
+    public boolean askIsOffence() {
+        return this.isOffensivePlayer;
     }
 
     public boolean isBallCarrier() {
@@ -63,24 +67,12 @@ public class Player {
         this.hasBall = false;
     }
 
-    public boolean askIsOffence() {
-        return this.strategy.getIsOffensive();
+    public void setPlayerStrategy(PlayerStrategy strategy) {
+        this.strategy = strategy;
     }
 
-    public int getMovingMode() {
-        return this.movingMode;
-    }
-
-    public void setMovingMode(int i) {
-        this.movingMode = i;
-    }
-
-    public void setPlayerToFollow(Player player) {
-        this.playerToFollow = player;
-    }
-
-    public Player getPlayerToFollow() {
-        return this.playerToFollow;
+    public void setLocation(int[] location) {
+        this.location = location;
     }
 
     @Override
@@ -95,6 +87,24 @@ public class Player {
      1 2 3
     
      */
+    public int getPlayersNextMove(Field field) {
+        return this.strategy.getNextMove(field, this.location);
+    }
+
+//    public void addNewLocation() {
+//        ArrayList<int[]> newList = new ArrayList();
+//        newList.add(this.location);
+//        int i = 0;
+//        while (i < 4 && i < this.lastFiveLocations.size()) {
+//            newList.add(this.lastFiveLocations.get(i));
+//            i++;
+//        }
+//        this.lastFiveLocations = newList;
+//    }
+//
+//    public ArrayList<int[]> getLastFiveLocations() {
+//        return this.lastFiveLocations;
+//    }
     public int[] movePlayer(int direction) {
         if (direction == 1) {
             this.location[0] -= 1;

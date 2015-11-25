@@ -15,32 +15,21 @@ import Objects.Player;
 public class PlayerMover {
 
     private Field field;
-    private RouteReader reader;
 
     public PlayerMover(Field field) {
         this.field = field;
-        this.reader = new RouteReader();
     }
 
-    public void playerMove(Player player) {
-        System.out.println(player.toString());
-        int movingMode = player.getMovingMode();
-        if (movingMode == 0) {
-            this.moveRoute(player);
-        }
-        if (movingMode == 11) {
-            this.moveManCover1(player);
-            System.out.println("ManCover");
-        }
-    }
+    
+    /*Tämä luokka ei tee vielä paljon mitään, mutta
+    tulevaisuudessa tätä tullaan laajentaa tilanteisiin 
+    joissa erikoistapauksen (ei pysty liikkua haluttuun suuntaan)
+    käsitellään
+    */
+    public void movePlayer(Player player) {
+        movePlayerOneStep(player, player.getPlayersNextMove(this.field));
+        player.playerMoved(player.getLocation());
 
-    public void moveManCover1(Player player) {
-        this.moveTowards(player, player.getPlayerToFollow().getLocation());
-    }
-
-    public void moveRoute(Player player) {
-        this.movePlayerOneStep(player, reader.readRoute(player));
-        player.routeMoved();
     }
 
     public boolean movePlayerOneStep(Player player, int directrion) {
@@ -62,33 +51,4 @@ public class PlayerMover {
 
     }
 
-    public void moveTowards(Player player, int[] partOfField) {
-        int x = partOfField[0] - player.getLocation()[0];
-        int y = partOfField[1] - player.getLocation()[1];
-        if (x < 0) {
-            if (y < 0) {
-                movePlayerOneStep(player, 1);
-            } else if (y > 0) {
-                movePlayerOneStep(player, 7);
-            } else {
-                movePlayerOneStep(player, 4);
-            }
-        } else if (x > 0) {
-            if (y < 0) {
-                movePlayerOneStep(player, 3);
-            } else if (y > 0) {
-                movePlayerOneStep(player, 9);
-            } else {
-                movePlayerOneStep(player, 6);
-            }
-        } else {
-            if (y < 0) {
-                movePlayerOneStep(player, 2);
-            } else {
-                movePlayerOneStep(player, 8);
-            }
-        }
-
-//    public boolean dodge()
-    }
 }

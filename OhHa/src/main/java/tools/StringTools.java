@@ -28,7 +28,7 @@ public class StringTools {
         return returnString;
     }
 
-    public int readNumber(String string, int startIndex, int endIndex) {
+    public int readPlayerNumber(String string, int startIndex, int endIndex) {
         String intString = "";
         while (endIndex != startIndex - 1) {
             intString = string.charAt(endIndex) + intString;
@@ -36,5 +36,13 @@ public class StringTools {
         }
         return Integer.parseInt(intString);
 
+    }
+
+    public int[] readLocation(String string) {
+        int firstNumber = 10 * Integer.parseInt(string.charAt(0) + "") + Integer.parseInt(string.charAt(1) + "");
+        System.out.println(firstNumber);
+        int secondNumber = 10 * Integer.parseInt(string.charAt(3) + "") + Integer.parseInt(string.charAt(4) + "");
+        System.out.println(secondNumber);
+        return new int[]{firstNumber, secondNumber};
     }
 }

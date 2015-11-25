@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PlayerLogic;
+package PlayerLogic.Tools;
 
 import Objects.Player;
 
@@ -17,13 +17,11 @@ public class RouteReader {
 
     }
 
-    public int readRoute(Player player) {
-        int i = player.getRoateMoveCounter();
-        String readRoute = player.getRoute();
-        if (readRoute.length() <= i) {
+    public int readRoute(String route, int moveCounter) {
+        if (route.length() <= moveCounter) {
             return 999;
         }
-        int readMove = Integer.parseInt(readRoute.charAt(i) + "");
+        int readMove = Integer.parseInt(route.charAt(moveCounter) + "");
         return readMove;
     }
 

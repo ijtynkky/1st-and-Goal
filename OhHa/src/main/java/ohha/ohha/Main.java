@@ -4,31 +4,40 @@ import GameLogic.*;
 import Graphics.*;
 import Objects.*;
 import PlayerLogic.*;
+import PlayerLogic.Strategies.ManCover;
+import PlayerLogic.Strategies.RouteRunner;
+import java.io.File;
+import java.io.FileNotFoundException;
+import teamStrategy.TeamStrategyOffence;
+import tools.TeamCreator;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
         Field kentta = new Field(53, 20);
+        TeamCreator luoja = new TeamCreator();
+        Team team1 = luoja.create(new File("DEN.txt"));
+        TeamStrategyOffence taktiikka = new TeamStrategyOffence(team1);
+        taktiikka.getWholeTeamStrategyFromFile(new File("TestiOff.txt"));
+        taktiikka.setWholeTeamOnTheField(kentta);
 
-        PlayerInfo pManning = new PlayerInfo("Peyton Manning", 18, "");
-        int[] alkupaikka1 = {27, 10};
-        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, "879987444448888888888", true, "@");
-        Player qb = new Player(pManning, testiOff);
-        qb.giveBall();
-
-        PlayerInfo jjWatt = new PlayerInfo("J.J. Watt", 99, "");
-        int[] alkupaikka2 = {27, 15};
-        PlayerStrategy testiDef = new PlayerStrategy(alkupaikka2, "879987444448888888888", false, "J");
-        Player def = new Player(jjWatt, testiDef);
-        def.setPlayerToFollow(qb);
-        def.setMovingMode(11);
-
-        kentta.addPlayer(qb);
-        kentta.addPlayer(def);
-
-        System.out.println("PAYTON HAS THE BALL");
-
+        for (Player player : kentta.getPlayers()) {
+            System.out.println(player);
+        }
+        //        PlayerInfo leSeanMcCoy = new PlayerInfo("LeSean McCoy", 25, "RB");
+        //        int[] alkupaikka1 = {27, 10};
+        //        RouteRunner testiOff = new RouteRunner(alkupaikka1, "879987444448888888888", "@");
+        //        Player leSean = new Player(leSeanMcCoy, testiOff);
+        //        leSean.giveBall();
+        //
+        //        PlayerInfo jjWatt = new PlayerInfo("J.J. Watt", 99, "");
+        //        int[] alkupaikka2 = {27, 15};
+        //        PlayerStrategy testiDef = new ManCover(alkupaikka2, leSean, "J");
+        //        Player def = new Player(jjWatt, testiDef);
+        //
+        //        kentta.addPlayer(leSean);
+        //        kentta.addPlayer(def);
         PlayDown pelaaAlas = new PlayDown(kentta);
 
         pelaaAlas.move();

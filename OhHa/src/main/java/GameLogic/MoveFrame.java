@@ -29,7 +29,7 @@ public class MoveFrame {
 
     public void move(Field gameField) {
         for (Player player : gameField.getPlayers()) {
-            mover.playerMove(player);
+            mover.movePlayer(player);
         }
     }
 

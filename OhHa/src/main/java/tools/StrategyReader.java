@@ -5,7 +5,8 @@
  */
 package tools;
 
-import PlayerLogic.PlayerStrategy;
+import PlayerLogic.*;
+import PlayerLogic.Strategies.RouteRunner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -17,40 +18,32 @@ import java.util.Scanner;
 public class StrategyReader {
 
     private File file;
+    private StringTools tools;
 
     public StrategyReader(File file) {
         this.file = file;
+        this.tools = new StringTools();
     }
 
-    public PlayerStrategy getStrategy(String strategy) throws FileNotFoundException {
+    public PlayerStrategy getStrategy(String strategyName) throws FileNotFoundException {
         Scanner reader = new Scanner(this.file);
         String lineRead = "";
-        while (!lineRead.contains(strategy) || !reader.hasNextLine()) {
+        while (!lineRead.contains(strategyName) || !reader.hasNextLine()) {
             lineRead = reader.nextLine();
         }
-        PlayerStrategy 
+        String strategy = reader.nextLine();
+        int[] startingLocation = tools.readLocation(reader.nextLine());
+        if (strategy.equals("RouteRunner")) {
+            String route = reader.nextLine();
+            String icon = reader.nextLine();
+            RouteRunner returnThis = new RouteRunner(startingLocation, route, icon);
+            return returnThis;
+        }
+
+        if (strategy.equals("ManCover")) {
+
+        }
+        return null;
     }
 
-    private int[] readPosition(String string) {
-        int[] returnThis = {};
-        int whereDotIs = 0;
-        while (whereDotIs < string.length()) {
-            if (",".equals(string.charAt(whereDotIs))) {
-                break;
-            } else {
-                whereDotIs++;
-            }
-        }
-        if (whereDotIs + 1 == string.length()) {
-            System.out.println("VIRHE VIRHE VIRHE");
-            return null;
-        }
-        String firstNumber = "";
-        int helpInt = whereDotIs;
-        while (helpInt != 0) {
-            firstNumber = string.charAt(helpInt) + firstNumber;
-            helpInt--;
-        }
-        returnThis[1] = Integer.parseInt(firstNumber);
-    }
 }

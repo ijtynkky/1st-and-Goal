@@ -27,10 +27,20 @@ public class Field {
         this.players = new ArrayList();
     }
 
-    public void addPlayer(Player player) { //testejä varten, älä käytä!
-        if (this.partOfField(player.getLocation()) == 1) {
-            this.players.add(player);
-        }
+    public void addPlayerOffensive(Player player) {
+        int[] addToThisLocation = player.getStartingLocation();
+        addToThisLocation[1] = this.lineOfSkirmish - addToThisLocation[1];
+        player.setLocation(addToThisLocation);
+        this.players.add(player);
+
+    }
+
+    public void addPlayerDefensive(Player player) {
+        int[] addToThisLocation = player.getStartingLocation();
+        addToThisLocation[1] = this.lineOfSkirmish + addToThisLocation[1];
+        player.setLocation(addToThisLocation);
+        this.players.add(player);
+
     }
 
     public ArrayList<Player> getPlayers() {
@@ -67,6 +77,10 @@ public class Field {
     public int[] getSize() {
         int[] size = {this.widht, this.lenght};
         return size;
+    }
+
+    public int getLineOfSkirmishInteger() {
+        return this.lenght - this.lineOfSkirmish;
     }
 
     /*
