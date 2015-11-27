@@ -6,7 +6,8 @@
 package tools;
 
 import PlayerLogic.*;
-import PlayerLogic.Strategies.RouteRunner;
+import PlayerLogic.DefenceStrategies.PassRusher;
+import PlayerLogic.OffensiveStrategies.RouteRunner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -33,15 +34,20 @@ public class StrategyReader {
         }
         String strategy = reader.nextLine();
         int[] startingLocation = tools.readLocation(reader.nextLine());
+        String icon = reader.nextLine();
         if (strategy.equals("RouteRunner")) {
             String route = reader.nextLine();
-            String icon = reader.nextLine();
             RouteRunner returnThis = new RouteRunner(startingLocation, route, icon);
             return returnThis;
         }
 
-        if (strategy.equals("ManCover")) {
-
+        if (strategy.equals("PassRusher")) {
+            PassRusher returnThis = new PassRusher(startingLocation, icon);
+            String readNext = reader.nextLine();
+            if (!readNext.equals("*")) {
+                returnThis.setRoute(readNext);
+            }
+            return returnThis;
         }
         return null;
     }

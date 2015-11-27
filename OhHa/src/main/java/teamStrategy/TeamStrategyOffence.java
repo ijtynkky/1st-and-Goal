@@ -57,7 +57,7 @@ public class TeamStrategyOffence {
         }
         int i = 1;
         while (i < 12) {
-            field.addPlayerOffensive(this.formation.get(i));
+            field.addPlayerOffensive(i, this.formation.get(i));
             i++;
         }
     }
@@ -140,7 +140,7 @@ public class TeamStrategyOffence {
     public void setLinemenOnField(Field field) {
         int i = 2;
         while (i < 7) {
-            field.addPlayerOffensive(this.formation.get(i));
+            field.addPlayerOffensive(i, this.formation.get(i));
             i++;
         }
     }

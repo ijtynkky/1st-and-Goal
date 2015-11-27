@@ -1,6 +1,10 @@
-PlayerLogic\PlayerStrategyTest.class
+tools\StringToolsTest.class
 Objects\FieldTest.class
+Objects\TeamTest.class
+tools\StrategyReaderTest.class
 Objects\PlayerTest.class
+PlayerLogic\RouteReaderTest.class
+tools\RandomizerTest.class
+PlayerLogic\Strategies\RouteRunnerTest.class
 tools\TeamCreatorTest.class
 PlayerLogic\PlayerMoverTest.class
-PlayerLogic\RouteReaderTest.class

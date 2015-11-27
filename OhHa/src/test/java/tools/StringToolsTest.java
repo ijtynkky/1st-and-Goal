@@ -56,18 +56,34 @@ public class StringToolsTest {
         String string = "99";
         StringTools instance = new StringTools();
         int expResult = 99;
-        int result = instance.readNumber(string, 0, 1);
+        int result = instance.readPlayerNumber(string, 0, 1);
         assertEquals(expResult, result);
     }
-    
+
     @Test
     public void testReadNumbers2() {
         System.out.println("readNumbers");
         String string = "   99 ";
         StringTools instance = new StringTools();
         int expResult = 99;
-        int result = instance.readNumber(string, 3, 4);
+        int result = instance.readPlayerNumber(string, 3, 4);
         assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of readPlayerNumber method, of class StringTools.
+     */
+    /**
+     * Test of readLocation method, of class StringTools.
+     */
+    @Test
+    public void testReadLocation() {
+        System.out.println("readLocation");
+        String string = "01,45";
+        StringTools instance = new StringTools();
+        int[] expResult = new int[]{1, 45};
+        int[] result = instance.readLocation(string);
+        assertArrayEquals(expResult, result);
     }
 
 }

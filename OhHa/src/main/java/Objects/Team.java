@@ -1,22 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Objects;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
- * @author I
+ * Sisältää listan joukkueen pelaajien tiedoista, sekä joukkueen perustiedot
+ * 
  */
 public class Team {
 
     private ArrayList<PlayerInfo> players;
     private String name;
-    private static final String[] POSITIONS = new String[]{
+    private static final String[] POSITIONS = new String[]{ //Pelipaikkojen lyhenteet
         "QB", "FB", "RB", "WR", "TE",
         "LT", "LG", "C", "RT", "RG", "DE", "NT", "LB", "CB", "SS"};
 
@@ -30,10 +25,9 @@ public class Team {
         return true;
     }
 
-    public PlayerInfo getPlayerInfo(int i) {
-        return this.players.get(i - 1);
-    }
-
+    
+    //palauttaa listan pelaajista tietylle pelipaikalle. position parametrin 
+    //pitää olla joku POSITION lyhenteistä (ehto myöhemmin)
     public ArrayList<PlayerInfo> getPlayersByPosition(String position) {
         ArrayList<PlayerInfo> returnPlayers = new ArrayList();
         for (PlayerInfo p : this.players) {
@@ -53,9 +47,8 @@ public class Team {
             if (playersInPosition.isEmpty()) {
                 i++;
             } else {
-                returnString = returnString + POSITIONS[i] + "\n";
                 for (PlayerInfo player : playersInPosition) {
-                    returnString = returnString + player + "\n";
+                    returnString = returnString + POSITIONS[i] + " " + player + "\n";
                 }
                 i++;
             }

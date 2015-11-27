@@ -6,6 +6,7 @@
 package Objects;
 
 import PlayerLogic.PlayerStrategy;
+import PlayerLogic.OffensiveStrategies.RouteRunner;
 import java.util.ArrayList;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -43,32 +44,16 @@ public class FieldTest {
      * Test of addPlayer method, of class Field.
      */
     @Test
-    public void testAddPlayer() {
+    public void testAddPlayer1() {
         System.out.println("addPlayer");
-        PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
-        int[] alkupaikka1 = {3, 15};
-        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, "879987", true);
-        Player player = new Player(pManning, testiOff);
-        System.out.println("Payton on QB");
-
-        Field instance = new Field(10, 10);
-        instance.addPlayer(player);
-        boolean expResult = false;
-        boolean result = instance.getPlayers().contains(player);
-        assertEquals(expResult, result);
-    }
-
-    @Test
-    public void testAddPlayer2() {
-        System.out.println("addPlayer");
-        PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
+        PlayerInfo pManning = new PlayerInfo("Peyton Manning", 18);
         int[] alkupaikka1 = {5, 5};
-        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, "879987", true);
+        RouteRunner testiOff = new RouteRunner(alkupaikka1, "879987", "Q");
         Player player = new Player(pManning, testiOff);
-        System.out.println("Payton on QB");
+        System.out.println("Peyton on QB");
 
         Field instance = new Field(10, 10);
-        instance.addPlayer(player);
+        instance.addPlayerOffensive(1, player);
         boolean expResult = true;
         boolean result = instance.getPlayers().contains(player);
         assertEquals(expResult, result);
@@ -81,21 +66,21 @@ public class FieldTest {
     public void testGetPlayerLocations() {
         System.out.println("getPlayerLocations");
 
-        PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
+        PlayerInfo pManning = new PlayerInfo("Peyton Manning", 18);
         int[] alkupaikka1 = {5, 5};
-        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, "879987", true);
+        RouteRunner testiOff = new RouteRunner(alkupaikka1, "879987", "Q");
         Player player = new Player(pManning, testiOff);
-        System.out.println("Payton on QB");
+        System.out.println("Peyton on QB");
 
-        PlayerInfo eManning = new PlayerInfo("Payton Manning", 10);
+        PlayerInfo eManning = new PlayerInfo("Peyton Manning", 10);
         int[] alkupaikka2 = {5, 6};
-        PlayerStrategy testiOff2 = new PlayerStrategy(alkupaikka1, "879987", true);
+        RouteRunner testiOff2 = new RouteRunner(alkupaikka1, "879987", "H");
         Player player2 = new Player(eManning, testiOff2);
         System.out.println("Eli on QB");
 
         Field instance = new Field(10, 10);
-        instance.addPlayer(player);
-        instance.addPlayer(player2);
+        instance.addPlayerOffensive(1, player);
+        instance.addPlayerOffensive(2, player2);
 
         ArrayList expResult = new ArrayList();
         expResult.add(player.getLocation());

@@ -9,6 +9,7 @@ import Graphics.SimpleGraphics;
 import Objects.Field;
 import Objects.Player;
 import Objects.PlayerInfo;
+import PlayerLogic.OffensiveStrategies.RouteRunner;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -43,21 +44,22 @@ public class PlayerMoverTest {
     }
 
     /**
-     * Test of moveRoute method, of class PlayerMover.
+     * Test of movePlayer method, of class PlayerMover.
      */
     @Test
     public void testMoveRouteYksiVasemmalle() {
-        System.out.println("moveRoute");
-        Field field = new Field(5, 5);
+        System.out.println("movePlayer");
+        Field field = new Field(53, 20);
 
         PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
         int[] alkupaikka1 = {3, 3};
-        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, "4", true);
+        RouteRunner testiOff = new RouteRunner(alkupaikka1, "4", "@");
         Player qb = new Player(pManning, testiOff);
+        qb.setLocation(alkupaikka1);
         System.out.println("Payton on QB");
 
         PlayerMover instance = new PlayerMover(field);
-        instance.moveRoute(qb);
+        instance.movePlayer(qb);
         int[] expResult = {2, 3};
         int[] result = qb.getLocation();
         Assert.assertArrayEquals(expResult, result);
@@ -66,34 +68,35 @@ public class PlayerMoverTest {
 
     @Test
     public void testMoveRouteVasenOikee() {
-        System.out.println("moveRoute");
+        System.out.println("movePlayer");
         Field field = new Field(5, 5);
 
         PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
         int[] alkupaikka1 = {3, 3};
-        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, "444444666666644", true);
+        RouteRunner testiOff = new RouteRunner(alkupaikka1, "444444666666644", "@");
         Player qb = new Player(pManning, testiOff);
+        qb.setLocation(alkupaikka1);
         System.out.println("Payton on QB");
 
         PlayerMover instance = new PlayerMover(field);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
+        instance.movePlayer(qb);
+        instance.movePlayer(qb);
+        instance.movePlayer(qb);
+        instance.movePlayer(qb);
+        instance.movePlayer(qb);
+        instance.movePlayer(qb);
+        instance.movePlayer(qb);
+        instance.movePlayer(qb);
+        instance.movePlayer(qb);
+        instance.movePlayer(qb);
+        instance.movePlayer(qb);
+        instance.movePlayer(qb);
+        instance.movePlayer(qb);
+        instance.movePlayer(qb);
+        instance.movePlayer(qb);
+        instance.movePlayer(qb);
+        instance.movePlayer(qb);
+        instance.movePlayer(qb);
         int[] expResult = {3, 3};
         int[] result = qb.getLocation();
         Assert.assertArrayEquals(expResult, result);
@@ -107,67 +110,20 @@ public class PlayerMoverTest {
 
         PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
         int[] alkupaikka1 = {3, 3};
-        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, "8888888888882222222222222222222222222222222288", true);
+        String reitti = "22222222888888888888888888";
+        RouteRunner testiOff = new RouteRunner(alkupaikka1, reitti, "@");
         Player qb = new Player(pManning, testiOff);
+        qb.setLocation(alkupaikka1);
         System.out.println("Payton on QB");
 
         PlayerMover instance = new PlayerMover(field);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
+        int i = 0;
+        while (i < reitti.length()) {
+            instance.movePlayer(qb);
+            i++;
+        }
 
-        int[] expResult = {3, 3};
+        int[] expResult = {3, 15};
         int[] result = qb.getLocation();
         Assert.assertArrayEquals(expResult, result);
 
@@ -175,19 +131,20 @@ public class PlayerMoverTest {
 
     @Test
     public void testMoveRouteVasenAlaKulma() {
-        System.out.println("moveRoute");
-        Field field = new Field(5, 5);
+        System.out.println("movePlayer");
+        Field field = new Field(53, 20);
 
         PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
         int[] alkupaikka1 = {3, 3};
-        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, "111", true);
+        RouteRunner testiOff = new RouteRunner(alkupaikka1, "111", "G");
         Player qb = new Player(pManning, testiOff);
+        qb.setLocation(alkupaikka1);
         System.out.println("Payton on QB");
 
         PlayerMover instance = new PlayerMover(field);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
-        instance.moveRoute(qb);
+        instance.movePlayer(qb);
+        instance.movePlayer(qb);
+        instance.movePlayer(qb);
         int[] expResult = {1, 1};
         int[] result = qb.getLocation();
         Assert.assertArrayEquals(expResult, result);
@@ -199,17 +156,17 @@ public class PlayerMoverTest {
         System.out.println("movePlayerOneStep");
         SimpleGraphics piirturi = new SimpleGraphics();
 
-        Field field = new Field(5, 5);
+        Field field = new Field(53, 20);
 
         PlayerMover testMover = new PlayerMover(field);
 
         PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
         int[] alkupaikka1 = {2, 2};
-        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, "879987", true);
+        RouteRunner testiOff = new RouteRunner(alkupaikka1, "879987", "G");
         Player qb = new Player(pManning, testiOff);
         System.out.println("Payton on QB");
 
-        field.addPlayer(qb);
+        field.addPlayerOffensive(1, qb);
         System.out.println("Payton on kentällä");
         piirturi.drawField(field);
         Player instance = qb;
@@ -221,20 +178,21 @@ public class PlayerMoverTest {
 
     @Test
     public void testMovePlayerOneStep2() {
-        System.out.println("movePlayerOneStep");
+        System.out.println("movePlayerOneStep2");
         SimpleGraphics piirturi = new SimpleGraphics();
 
-        Field field = new Field(5, 5);
+        Field field = new Field(53, 20);
 
         PlayerMover testMover = new PlayerMover(field);
 
         PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
-        int[] alkupaikka1 = {1, 1};
-        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, "879987", true);
+        int[] alkupaikka1 = {1, 10};
+        RouteRunner testiOff = new RouteRunner(alkupaikka1, "879987", "G");
         Player qb = new Player(pManning, testiOff);
         System.out.println("Payton on QB");
 
-        field.addPlayer(qb);
+        field.addPlayerOffensive(1, qb);
+
         System.out.println("Payton on kentällä");
         piirturi.drawField(field);
         Player instance = qb;
@@ -249,22 +207,25 @@ public class PlayerMoverTest {
         System.out.println("movePlayerOneStep TD!!!!");
         SimpleGraphics piirturi = new SimpleGraphics();
 
-        Field field = new Field(5, 5);
+        Field field = new Field(53, 20);
 
         PlayerMover testMover = new PlayerMover(field);
 
         PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
         int[] alkupaikka1 = {5, 5};
-        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, "879987", true);
+        RouteRunner testiOff = new RouteRunner(alkupaikka1, "879987", "G");
         Player qb = new Player(pManning, testiOff);
         System.out.println("Payton on QB");
 
-        field.addPlayer(qb);
+        field.addPlayerOffensive(1, qb);
+        qb.setLocation(new int[]{53, 20});
         System.out.println("Payton on kentällä");
+
         piirturi.drawField(field);
         Player instance = qb;
         boolean expResult = true;
-        boolean result = testMover.movePlayerOneStep(instance, 8);
+        testMover.movePlayerOneStep(instance, 8);
+        boolean result = field.partOfField(instance.getLocation()) == 2;
         piirturi.drawField(field);
         assertEquals(expResult, result);
     }
@@ -274,17 +235,18 @@ public class PlayerMoverTest {
         System.out.println("movePlayerOneStep");
         SimpleGraphics piirturi = new SimpleGraphics();
 
-        Field field = new Field(5, 5);
+        Field field = new Field(53, 20);
 
         PlayerMover testMover = new PlayerMover(field);
 
         PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
         int[] alkupaikka1 = {4, 4};
-        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, "879987", true);
+        RouteRunner testiOff = new RouteRunner(alkupaikka1, "879987", "G");
         Player qb = new Player(pManning, testiOff);
         System.out.println("Payton on QB");
 
-        field.addPlayer(qb);
+        field.addPlayerOffensive(1, qb);
+        qb.setLocation(alkupaikka1);
         System.out.println("Payton on kentällä");
         piirturi.drawField(field);
         testMover.movePlayerOneStep(qb, 8);

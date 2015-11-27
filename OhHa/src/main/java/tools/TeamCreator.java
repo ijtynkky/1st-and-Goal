@@ -24,27 +24,26 @@ public class TeamCreator {
         this.positionTracker = "";
         this.tools = new StringTools();
     }
-    
-    /*
-    FILE HAS TO BE IN THIS FORM:
-    team name                       //Anything goes
-    XX                              //position whit max 2 char
-    Surname FirstName playerNumber
-    Surname FirstName playerNumber
-    .
-    .
-    .
-    XX                              //next position
-    Surname FirstName playerNumber
-    XX                              //next position
-    listOfPlayers inThisPosition
-    .
-    .
-    .
-    
-    END or empty line will stop filereading!
-    */
 
+    /*
+     FILE HAS TO BE IN THIS FORM:
+     team name                       //Anything goes
+     XX                              //position whit max 2 char
+     playerNumber Surname FirstName 
+     playerNumber Surname FirstName 
+     .
+     .
+     .
+     XX                              //next position
+     playerNumber Surname FirstName 
+     XX                              //next position
+     playerNumber Surname FirstName 
+     .
+     .
+     .
+    
+     END or empty line will stop filereading!
+     */
     public Team create(File teamFile) throws FileNotFoundException {
         this.positionTracker = "";
         Scanner fileReader = new Scanner(teamFile);
@@ -63,32 +62,22 @@ public class TeamCreator {
     }
 
     private void addPlayerToTeam(Team team, String string) {
-        PlayerInfo newInfo = new PlayerInfo(this.getName(string), this.positionTracker);
+        PlayerInfo newInfo = new PlayerInfo(this.getName(string), this.getNumber(string), this.positionTracker);
         team.addPlayer(newInfo);
     }
 
     private String getName(String string) {
         String returnString = "";
-        int i = 0;
-        int spaceCounter = 0;
+        int i = 3;
         while (i < string.length()) {
-            String helpString = string.charAt(i) + "";
-            if (helpString.equals(" ")) {
-                spaceCounter++;
-                if (spaceCounter == 2) {
-                    break;
-                }
-                returnString = returnString + helpString;
-            } else {
-                returnString = returnString + helpString;
-            }
+            returnString = returnString + string.charAt(i);
             i++;
         }
         return returnString;
-
     }
-}
 
-//    private String getNumber(String string) {
-//
-//    }
+    private int getNumber(String string) {
+        return 10 * Integer.parseInt(string.charAt(0) + "") + Integer.parseInt(string.charAt(1) + "");
+    }
+
+}

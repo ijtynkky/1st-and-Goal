@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Objects;
 
 import PlayerLogic.PlayerStrategy;
@@ -11,7 +6,9 @@ import java.util.ArrayList;
 
 public class Player {
     /*
-    
+     Itse pelissä toimivat pelaajat. Sisältävät pelaajan tiedot, sekä pelaajalle
+     annetun tehtävän (PlayerStrategy). Pitää huolta pelin kannalta tärkeistä
+     asioista yksittäistä pelaajaa koskien, kuten sijainti pelikentällä
      */
 
     private PlayerStrategy strategy;
@@ -25,16 +22,18 @@ public class Player {
     public Player(PlayerInfo info, PlayerStrategy strategy) {
         this.hasBall = false;
         this.strategy = strategy;
-        this.location = null;
+        this.location = null;         //pelaajaa saa ensimmäisen sijainnin kun pelaaja lisätään Field olioon. field.addPlayer pitää huolen tästä
         this.playerInfo = info;
         this.playerIcon = strategy.getIcon();
         this.isOffensivePlayer = strategy.getIsOffensive();
         //  this.lastFiveLocations = new ArrayList();
     }
 
-    //This is just to get the information to this.strategy.
-    //this.strategy.playerMoved does mostly moveCounter++;
-    //int[] where is just for further aplications
+    /*playerMoved(int[]) lähettää tietoa this.strategy, jotta pelaajan strategia
+     pystyy pitämään kirjaa tehdyistä liikkeistä. int[] ei usein vaikuta, mutta
+     se vaaditaan tässä jotta PlayerStrategy rajapinnan toteuttavia luokkia 
+     voidaan tarvittaessa tehdä monimutkaisemmiksi
+     */
     public void playerMoved(int[] where) {
         this.strategy.playerMoved(where);
     }
@@ -44,7 +43,11 @@ public class Player {
     }
 
     public String getPlayerIcon() {
-        return "" + this.playerIcon;
+        if (this.hasBall) {
+            return "B";
+        } else {
+            return "" + this.playerIcon;
+        }
     }
 
     public int[] getStartingLocation() {
@@ -67,6 +70,7 @@ public class Player {
         this.hasBall = false;
     }
 
+    //Pelaajan strategiaa voi vaihtaa lennosta tarvittaessa
     public void setPlayerStrategy(PlayerStrategy strategy) {
         this.strategy = strategy;
     }
@@ -87,24 +91,6 @@ public class Player {
      1 2 3
     
      */
-    public int getPlayersNextMove(Field field) {
-        return this.strategy.getNextMove(field, this.location);
-    }
-
-//    public void addNewLocation() {
-//        ArrayList<int[]> newList = new ArrayList();
-//        newList.add(this.location);
-//        int i = 0;
-//        while (i < 4 && i < this.lastFiveLocations.size()) {
-//            newList.add(this.lastFiveLocations.get(i));
-//            i++;
-//        }
-//        this.lastFiveLocations = newList;
-//    }
-//
-//    public ArrayList<int[]> getLastFiveLocations() {
-//        return this.lastFiveLocations;
-//    }
     public int[] movePlayer(int direction) {
         if (direction == 1) {
             this.location[0] -= 1;
@@ -130,6 +116,7 @@ public class Player {
         return this.location;
     }
 
+    //PlayerMoveria varten, jotta voi testata mihin haluttu liike veisi pelaajan
     public int[] tryMovePlayer(int direction) {
         int y = this.location[1];
         int x = this.location[0];
@@ -158,4 +145,23 @@ public class Player {
         return newLocation;
     }
 
+    //pelaaja kysyy strategialtaan mihin suuntaan strategian mukaan pitää liikkua seuraavaksi
+    public int getPlayersNextMove(Field field) {
+        return this.strategy.getNextMove(field, this.location);
+    }
+
+//    public void addNewLocation() {
+//        ArrayList<int[]> newList = new ArrayList();
+//        newList.add(this.location);
+//        int i = 0;
+//        while (i < 4 && i < this.lastFiveLocations.size()) {
+//            newList.add(this.lastFiveLocations.get(i));
+//            i++;
+//        }
+//        this.lastFiveLocations = newList;
+//    }
+//
+//    public ArrayList<int[]> getLastFiveLocations() {
+//        return this.lastFiveLocations;
+//    }
 }

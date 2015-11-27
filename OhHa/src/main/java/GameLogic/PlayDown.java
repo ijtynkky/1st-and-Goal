@@ -7,6 +7,7 @@ package GameLogic;
 
 import Graphics.SimpleGraphics;
 import Objects.Field;
+import tools.BallTool;
 
 /**
  *
@@ -17,15 +18,19 @@ public class PlayDown {
     private MoveFrame moveFrame;
     private Field field;
     private SimpleGraphics piirturi;
+    private BallTool ballTool;
 
     public PlayDown(Field field) {
         this.moveFrame = new MoveFrame(field);
         this.field = field;
         this.piirturi = new SimpleGraphics();
+        this.ballTool = new BallTool();
     }
 
     public void move() {
         piirturi.drawField(field);
+        ballTool.passBall(field.playerWIthBall(), field.getPlayerOff(1));
+       piirturi.drawField(field);
         System.out.println("PLAY");
         boolean continuePlay = true;
         int i = 0;

@@ -1,63 +1,80 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Objects;
 
 import java.util.ArrayList;
-//tärkeä kommentti
-//asdf
+import java.util.HashMap;
 
 /**
- *
- * @author I
+ *Field pitää pelissä huolta kentällä olevista pelaajista, sekä
+ * pelikentään liittyvistä ominaisuuksista, kuten sivurajoista
  */
 public class Field {
 
     private int lineOfSkirmish;
     private int widht;
     private int lenght;
-    private ArrayList<Player> players;
+    private HashMap<Integer, Player> OffensivePlayers;
+    private HashMap<Integer, Player> DefensivePlayers;
 
     public Field(int x, int y) {
         this.lenght = y;
-        this.lineOfSkirmish = this.lenght - 9;
+        this.lineOfSkirmish = this.lenght - 9; //pelissä lineOfSkirmish (LOS) alkaa aina 10 jaardin (ruudun) päästä maalista
         this.widht = x;
-        this.players = new ArrayList();
+        this.OffensivePlayers = new HashMap();
+        this.DefensivePlayers = new HashMap();
     }
 
-    public void addPlayerOffensive(Player player) {
-        int[] addToThisLocation = player.getStartingLocation();
-        addToThisLocation[1] = this.lineOfSkirmish - addToThisLocation[1];
-        player.setLocation(addToThisLocation);
-        this.players.add(player);
+    //asettaa hyökkäyksen pelaajan annetuun kohtaa pelikentällä
+    public void addPlayerOffensive(int position, Player player) {
+        if (0 < position && position < 12) {
+            int[] addToThisLocation = player.getStartingLocation();
+            addToThisLocation[1] = this.lineOfSkirmish - addToThisLocation[1];
+            player.setLocation(addToThisLocation);
+            this.OffensivePlayers.put(position, player);
+        }
+    }
+
+    public void addPlayerDefensive(int position, Player player) {
+        if (0 < position && position < 12) {
+            int[] addToThisLocation = player.getStartingLocation();
+            addToThisLocation[1] = this.lineOfSkirmish + addToThisLocation[1];
+            player.setLocation(addToThisLocation);
+            this.DefensivePlayers.put(position, player);
+        }
 
     }
 
-    public void addPlayerDefensive(Player player) {
-        int[] addToThisLocation = player.getStartingLocation();
-        addToThisLocation[1] = this.lineOfSkirmish + addToThisLocation[1];
-        player.setLocation(addToThisLocation);
-        this.players.add(player);
+    public Player getPlayerOff(int i) {
+        return this.OffensivePlayers.get(i);
+    }
 
+    public Player getPlayerDef(int i) {
+        return this.DefensivePlayers.get(i);
     }
 
     public ArrayList<Player> getPlayers() {
-        return this.players;
+        ArrayList<Player> returnThis = new ArrayList();
+        for (Player player : this.DefensivePlayers.values()) {
+            returnThis.add(player);
+        }
+        for (Player player : this.OffensivePlayers.values()) {
+            returnThis.add(player);
+        }
+        return returnThis;
     }
 
     public ArrayList<int[]> getPlayerLocations() {
         ArrayList<int[]> locations = new ArrayList();
-        for (Player player : this.players) {
+        for (Player player : getPlayers()) {
             locations.add(player.getLocation());
         }
         return locations;
     }
 
+    //palauttaa pelaajan, jos kyseisestä ruudusta löytyy pelaaja, 
+    //muuten palauttaa null
     public Player getPlayerInThisPlace(int[] place) {
         Player thePlayerYouAreLookingFor = null;
-        for (Player player : this.players) {
+        for (Player player : getPlayers()) {
             if (player.getLocation()[0] == (place[0]) && player.getLocation()[1] == (place[1])) {
                 thePlayerYouAreLookingFor = player;
             }
@@ -65,8 +82,9 @@ public class Field {
         return thePlayerYouAreLookingFor;
     }
 
+    //palauttaa pallollisen pelaajan
     public Player playerWIthBall() {
-        for (Player player : this.players) {
+        for (Player player : getPlayers()) {
             if (player.isBallCarrier()) {
                 return player;
             }
@@ -74,6 +92,8 @@ public class Field {
         return null;
     }
 
+
+    //grafiikoita varten:
     public int[] getSize() {
         int[] size = {this.widht, this.lenght};
         return size;

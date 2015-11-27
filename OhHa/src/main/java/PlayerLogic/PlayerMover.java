@@ -1,16 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package PlayerLogic;
 
 import Objects.Field;
 import Objects.Player;
 
-/**
- *
- * @author I
+/*Tämä luokka ei tee vielä paljon mitään, mutta
+ tulevaisuudessa tätä tullaan laajentamaan. Käytännössä erikoistilanteet
+ ja poikkeukset käsitellään satunnaisgeneraattorin kanssa
  */
 public class PlayerMover {
 
@@ -20,32 +15,35 @@ public class PlayerMover {
         this.field = field;
     }
 
-    
-    /*Tämä luokka ei tee vielä paljon mitään, mutta
-    tulevaisuudessa tätä tullaan laajentaa tilanteisiin 
-    joissa erikoistapauksen (ei pysty liikkua haluttuun suuntaan)
-    käsitellään
-    */
+//liikuttaa pelaajaa yhden ruudun pelaajan strategian antamaan suuntaan
     public void movePlayer(Player player) {
         movePlayerOneStep(player, player.getPlayersNextMove(this.field));
         player.playerMoved(player.getLocation());
 
     }
 
+    //Liikuttaa pelaajaa annettuun suuntaan
+    /*MOVING
+     directions, @ is player:
+     7 8 9
+     4 @ 6
+     1 2 3
+    
+     */
     public boolean movePlayerOneStep(Player player, int directrion) {
 
         int[] tryToMove = player.tryMovePlayer(directrion);
-        System.out.println(tryToMove[0] + "," + tryToMove[1]);
+
         if (field.partOfField(tryToMove) == 0) {                        //if out of field
-            System.out.println("false\n");
+
             return false;
         }
         if (field.getPlayerInThisPlace(tryToMove) == null) {          //If there is no other player in the same square
             player.movePlayer(directrion);
-            System.out.println("true\n");
+
             return true;
         } else {
-            System.out.println("false\n");
+
             return false;
         }
 

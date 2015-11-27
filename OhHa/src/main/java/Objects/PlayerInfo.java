@@ -1,27 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Objects;
 
 /**
- *
- * @author I
+ *Tämän luokan oliot pitävät kirjaa yksittäisten pelaajien muuttumattomista
+ * tiedoista, sekä pelin aikana suorituksista. Mahdollisesti myöhemmin
+ * esim. eri statseja voi listätä tähän luokkaan
  */
 public class PlayerInfo {
 
-    private String name;
-    private int playerNumber;
-    private int touchdowns;
-    private String position;
+    private String name;            //Pelaajan nimi
+    private int playerNumber;       //pelinumero
+    private int touchdowns;         //tehtyjen maalien määrä
+    private String position;        //Pelipaikka
 
-    public PlayerInfo(String name, String position) {
-        this.name = name;
-        this.playerNumber = 0;
-        this.position = position;
-        this.touchdowns = 0;
-    }
 
     //FOR TESTS ONLY
     public PlayerInfo(String name, int number) {

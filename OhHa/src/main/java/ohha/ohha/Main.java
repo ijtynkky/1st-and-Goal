@@ -4,10 +4,11 @@ import GameLogic.*;
 import Graphics.*;
 import Objects.*;
 import PlayerLogic.*;
-import PlayerLogic.Strategies.ManCover;
-import PlayerLogic.Strategies.RouteRunner;
+import PlayerLogic.DefenceStrategies.ManCover;
+import PlayerLogic.OffensiveStrategies.RouteRunner;
 import java.io.File;
 import java.io.FileNotFoundException;
+import teamStrategy.TeamStrategyDefence;
 import teamStrategy.TeamStrategyOffence;
 import tools.TeamCreator;
 
@@ -17,14 +18,23 @@ public class Main {
 
         Field kentta = new Field(53, 20);
         TeamCreator luoja = new TeamCreator();
+        Team team2 = luoja.create(new File("SEA.txt"));
+        System.out.println(team2);
+
+        TeamStrategyDefence puolustusTaktiikka = new TeamStrategyDefence(team2);
+
+        puolustusTaktiikka.getDefenceFromFile(new File("TestiDef.txt"));
+        puolustusTaktiikka.setWholeTeamOnTheField(kentta);
+
         Team team1 = luoja.create(new File("DEN.txt"));
         TeamStrategyOffence taktiikka = new TeamStrategyOffence(team1);
-        taktiikka.getWholeTeamStrategyFromFile(new File("TestiOff.txt"));
+        taktiikka.getWholeTeamStrategyFromFile(new File("TestiOff2.txt"));
         taktiikka.setWholeTeamOnTheField(kentta);
 
         for (Player player : kentta.getPlayers()) {
             System.out.println(player);
         }
+        //_________________________________________________________________________________________________________
         //        PlayerInfo leSeanMcCoy = new PlayerInfo("LeSean McCoy", 25, "RB");
         //        int[] alkupaikka1 = {27, 10};
         //        RouteRunner testiOff = new RouteRunner(alkupaikka1, "879987444448888888888", "@");

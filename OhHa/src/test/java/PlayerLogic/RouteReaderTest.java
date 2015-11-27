@@ -5,8 +5,10 @@
  */
 package PlayerLogic;
 
+import PlayerLogic.Tools.RouteReader;
 import Objects.Player;
 import Objects.PlayerInfo;
+import PlayerLogic.OffensiveStrategies.RouteRunner;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -45,15 +47,9 @@ public class RouteReaderTest {
     @Test
     public void testReadRoute() {
         System.out.println("readRoute");
-
-        PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
-        int[] alkupaikka1 = {5, 5};
-        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, "123456789", true);
-        Player qb = new Player(pManning, testiOff);
-        System.out.println("payton on QB");
         RouteReader instance = new RouteReader();
         int expResult = 1;
-        int result = instance.readRoute(qb);
+        int result = instance.readRoute("123346", 0);
         assertEquals(expResult, result);
     }
 
@@ -61,47 +57,10 @@ public class RouteReaderTest {
     public void testReadRoute2() {
         System.out.println("readRoute");
 
-        PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
-        int[] alkupaikka1 = {5, 5};
-        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, "123456789", true);
-        Player qb = new Player(pManning, testiOff);
-        System.out.println("payton on QB");
+        String route = "12345678";
         RouteReader instance = new RouteReader();
-        qb.routeMoved();
-        int expResult = 2;
-        int result = instance.readRoute(qb);
+        int expResult = 5;
+        int result = instance.readRoute(route, 4);
         assertEquals(expResult, result);
     }
-
-    @Test
-    public void testReadRoute10() {
-        System.out.println("readRoute");
-
-        PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
-        int[] alkupaikka1 = {5, 5};
-        PlayerStrategy testiOff = new PlayerStrategy(alkupaikka1, "123456789", true);
-        Player qb = new Player(pManning, testiOff);
-        System.out.println("payton on QB");
-        RouteReader instance = new RouteReader();
-        qb.routeMoved();
-        qb.routeMoved();
-        qb.routeMoved();
-        qb.routeMoved();
-        qb.routeMoved();
-        qb.routeMoved();
-        qb.routeMoved();
-        qb.routeMoved();
-        qb.routeMoved();
-        qb.routeMoved();
-        qb.routeMoved();
-        qb.routeMoved();
-        qb.routeMoved();
-        qb.routeMoved();
-        qb.routeMoved();
-        qb.routeMoved();
-        int expResult = 999;
-        int result = instance.readRoute(qb);
-        assertEquals(expResult, result);
-    }
-
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="0" name="PlayerLogic.PlayerMoverTest" time="0.102" errors="0" skipped="0">
+<testsuite tests="8" failures="0" name="PlayerLogic.PlayerMoverTest" time="0.558" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_65\jre\bin"/>
@@ -61,12 +61,12 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMovePlayerOneStep" time="0.003"/>
+  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMovePlayerOneStep" time="0.079"/>
   <testcase classname="PlayerLogic.PlayerMoverTest" name="testMoveRouteVasenAlaKulma" time="0"/>
-  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMoveRouteAlasYos" time="0.004"/>
+  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMoveRouteAlasYos" time="0"/>
   <testcase classname="PlayerLogic.PlayerMoverTest" name="testMoveRouteYksiVasemmalle" time="0"/>
-  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMoveRouteVasenOikee" time="0.001"/>
-  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMovePlayerOneStep2" time="0.035"/>
-  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMovePlayerOneStep3" time="0.019"/>
-  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMovePlayerOneStep4" time="0.036"/>
+  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMoveRouteVasenOikee" time="0"/>
+  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMovePlayerOneStep2" time="0.432"/>
+  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMovePlayerOneStep3" time="0.017"/>
+  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMovePlayerOneStep4" time="0.026"/>
 </testsuite>

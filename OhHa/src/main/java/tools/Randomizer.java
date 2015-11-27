@@ -12,15 +12,37 @@ import java.util.Random;
  * @author I
  */
 public class Randomizer {
+
     private Random random;
-    
+
     public Randomizer() {
         this.random = new Random();
     }
-    
-    public boolean testRandom(int succesRate) {
-        int a = this.random.nextInt(100);
-        return true;
-        
+
+    public boolean testRandom(int successRate) {
+        int a = this.random.nextInt(99) + 1;
+        {
+            if (a > successRate) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+    }
+
+    public int threeOptions(int firstProba, int secondProba) {
+        int a = this.random.nextInt(99) + 1;
+        if (a <= firstProba) {
+            return 1;
+        } else if (a <= secondProba) {
+            return 2;
+        } else {
+            return 3;
+        }
+    }
+
+    public int randomDirection() {
+        return this.random.nextInt(8) + 1;
     }
 }

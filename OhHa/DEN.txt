@@ -1,25 +1,25 @@
 Denver Broncos
 WR
-Demaryius Thomas 88
-Andre Caldwell 12
-Emmanuel Sanders 10
+88 Demaryius Thomas
+12 Andre Caldwell
+10 Emmanuel Sanders
 LT
-Ryan Harris 68
+68 Ryan Harris
 LG
-Evan Mathis 69
+69 Evan Mathis
 C
-Matt Paradis 61
+61 Matt Paradis
 RG
-Louis Vasquez 65
+65 Louis Vasquez
 RT
-Michael Schofield 79
+79 Michael Schofield
 TE
-Owen Daniels 81
-Vernon Davis 80
+81 Owen Daniels
+80 Vernon Davis
 RB
-Ronnie Hillman 23
+23 Ronnie Hillman
 QB
-Peyton Manning 18
+18 Peyton Manning
 FB
-Virgil Green 85
+85 Virgil Green
 END 

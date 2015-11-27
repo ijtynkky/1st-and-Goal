@@ -1,8 +1,8 @@
 Testitiimi
 QB
-Payton Manning 18
+18Payton Manning
 TE
 WR
 
-Demaryius Thomas 88
+88Demaryius Thomas
 END
