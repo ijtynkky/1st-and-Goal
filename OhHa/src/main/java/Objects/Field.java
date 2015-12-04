@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *Field pitää pelissä huolta kentällä olevista pelaajista, sekä
- * pelikentään liittyvistä ominaisuuksista, kuten sivurajoista
+ * Field pitää pelissä huolta kentällä olevista pelaajista, sekä pelikentään
+ * liittyvistä ominaisuuksista, kuten sivurajoista
  */
 public class Field {
 
@@ -14,6 +14,7 @@ public class Field {
     private int lenght;
     private HashMap<Integer, Player> OffensivePlayers;
     private HashMap<Integer, Player> DefensivePlayers;
+    private int ballDropedInY;
 
     public Field(int x, int y) {
         this.lenght = y;
@@ -21,6 +22,7 @@ public class Field {
         this.widht = x;
         this.OffensivePlayers = new HashMap();
         this.DefensivePlayers = new HashMap();
+        this.ballDropedInY = 999;
     }
 
     //asettaa hyökkäyksen pelaajan annetuun kohtaa pelikentällä
@@ -53,10 +55,10 @@ public class Field {
 
     public ArrayList<Player> getPlayers() {
         ArrayList<Player> returnThis = new ArrayList();
-        for (Player player : this.DefensivePlayers.values()) {
+        for (Player player : this.OffensivePlayers.values()) {
             returnThis.add(player);
         }
-        for (Player player : this.OffensivePlayers.values()) {
+        for (Player player : this.DefensivePlayers.values()) {
             returnThis.add(player);
         }
         return returnThis;
@@ -92,6 +94,13 @@ public class Field {
         return null;
     }
 
+    public void setBallDropedY(int y) {
+        this.ballDropedInY = y;
+    }
+
+    public int getBallDropedY() {
+        return this.ballDropedInY;
+    }
 
     //grafiikoita varten:
     public int[] getSize() {

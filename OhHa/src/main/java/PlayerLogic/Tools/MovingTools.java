@@ -1,22 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package PlayerLogic.Tools;
 
 import Objects.Field;
+import tools.Randomizer;
 
-/**
- *
- * @author I
+/*MOVING
+ directions, @ is player:
+ 7 8 9
+ 4 @ 6
+ 1 2 3
+    
  */
 public class MovingTools {
-    
+
+    private Randomizer random;
+
     public MovingTools() {
-        
+        this.random = new Randomizer();
+
     }
-    
+
     public int directonTowardsPointB(int[] pointA, int[] pointB) {
         int x = pointB[0] - pointA[0];
         int y = pointB[1] - pointA[1];
@@ -46,5 +48,66 @@ public class MovingTools {
 
         }
         return returnThis;
+    }
+
+    public int directionTowardsPlayerWithBall(Field field, int[] playerLocation) {
+        if (field.playerWIthBall().equals(null)) {
+            return 5;
+        } else {
+            int[] pointB = field.getPlayerOff(1).getLocation();
+            return this.directonTowardsPointB(playerLocation, pointB);
+        }
+    }
+
+    /*
+    
+     */
+    public int dodge(int preferedDirection) {
+        int option1 = 0;
+        int option2 = 0;
+        int option3 = 0;
+        if (preferedDirection == 1) {
+            option1 = 3;
+            option2 = 2;
+            option3 = 6;
+        } else if (preferedDirection == 3) {
+            option1 = 1;
+            option2 = 2;
+            option3 = 4;
+        } else if (preferedDirection == 2) {
+            option1 = 1;
+            option2 = 3;
+            option3 = 8;
+        } else if (preferedDirection == 4) {
+            option1 = 1;
+            option2 = 7;
+            option3 = 6;
+        } else if (preferedDirection == 6) {
+            option1 = 3;
+            option2 = 9;
+            option3 = 4;
+        } else if (preferedDirection == 7) {
+            option1 = 9;
+            option2 = 8;
+            option3 = 6;
+        } else if (preferedDirection == 9) {
+            option1 = 7;
+            option2 = 8;
+            option3 = 4;
+        } else if (preferedDirection == 8) {
+            return random.randomDirection();
+        }
+        int getRandom = random.threeOptions(20, 20);
+        if (getRandom == 1) {
+            return option1;
+        } else if (getRandom == 2) {
+            return option2;
+        } else {
+            return option3;
+        }
+    }
+
+    public boolean tackle() {
+        return random.testRandom(30);
     }
 }

@@ -9,6 +9,7 @@ import PlayerLogic.Tools.RouteReader;
  * määrätty reitti. Käytetään pääasiassa "reseiver" pelaajilla
  * (WR, TE, ja RB)
  */
+//lisäys
 public class RouteRunner implements PlayerStrategy {
 
     private final int[] startingLocation;

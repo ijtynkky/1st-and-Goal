@@ -6,8 +6,7 @@ import PlayerLogic.Tools.MovingTools;
 import PlayerLogic.Tools.RouteReader;
 
 /**
- * Puolustavan pelaajan strategia, jossa pelaaja jahtaa pallollista
- * pelaajaa
+ * Puolustavan pelaajan strategia, jossa pelaaja jahtaa pallollista pelaajaa
  */
 public class PassRusher implements PlayerStrategy {
 
@@ -20,7 +19,7 @@ public class PassRusher implements PlayerStrategy {
         this.StartingLocation = startingLocation;
         this.playerIcon = icon.charAt(0);
         this.optionaRoute = "";
-        this.routeCounter = 1;
+        this.routeCounter = 0;
 
     }
 
@@ -33,7 +32,7 @@ public class PassRusher implements PlayerStrategy {
         this.routeCounter = 0;
 
     }
-    
+
     public void setRoute(String string) {
         this.optionaRoute = string;
         this.routeCounter = 0;
@@ -46,13 +45,14 @@ public class PassRusher implements PlayerStrategy {
 
     @Override
     public int getNextMove(Field field, int[] playerLocation) {
-        if (this.routeCounter < this.optionaRoute.length()) {
+        MovingTools mTools = new MovingTools();
+        if (this.routeCounter + 1 < this.optionaRoute.length()) {
             RouteReader reader = new RouteReader();
             return reader.readRoute(optionaRoute, routeCounter);
         } else {
-            MovingTools mTool = new MovingTools();
+
             int[] pointB = field.getPlayerOff(1).getLocation();
-            return mTool.directonTowardsPointB(playerLocation, pointB);
+            return mTools.directonTowardsPointB(playerLocation, pointB);
         }
 
     }

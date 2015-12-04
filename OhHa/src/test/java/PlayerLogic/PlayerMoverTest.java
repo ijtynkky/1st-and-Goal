@@ -260,4 +260,27 @@ public class PlayerMoverTest {
         assertEquals(expResult, result);
     }
 
+    /**
+     * Test of movePlayer method, of class PlayerMover.
+     */
+    @Test
+    public void testMovePlayer() {
+        System.out.println("movePlayer");
+        PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
+        int[] alkupaikka1 = {4, 1};
+        RouteRunner testiOff = new RouteRunner(alkupaikka1, "879987", "G");
+        Player qb = new Player(pManning, testiOff);
+        System.out.println("Payton on QB");
+        Field field = new Field(53, 20);
+        field.addPlayerOffensive(1, qb);
+        qb.setLocation(alkupaikka1);
+        System.out.println("Payton on kentällä");
+        PlayerMover instance = new PlayerMover(field);
+        instance.movePlayer(qb);
+        instance.movePlayer(qb);
+        int expResult = 12;
+        int result = qb.getLocation()[1];
+        assertEquals(expResult, result);
+    }
+
 }

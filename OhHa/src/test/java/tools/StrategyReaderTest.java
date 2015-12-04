@@ -46,7 +46,7 @@ public class StrategyReaderTest {
     public void testGetStrategy() throws Exception {
         System.out.println("getStrategy");
         String strategyName = "player1";
-        StrategyReader instance = new StrategyReader(new File("TestiOff.txt"));
+        StrategyReader instance = new StrategyReader(new File("TestiOff2.txt"));
         boolean expResult = true;
         boolean result = true;
         PlayerStrategy playerStrategy = instance.getStrategy(strategyName);

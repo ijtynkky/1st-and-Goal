@@ -35,7 +35,7 @@ public class Randomizer {
         int a = this.random.nextInt(99) + 1;
         if (a <= firstProba) {
             return 1;
-        } else if (a <= secondProba) {
+        } else if (a <= secondProba + firstProba) {
             return 2;
         } else {
             return 3;
