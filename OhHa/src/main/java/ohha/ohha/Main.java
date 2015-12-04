@@ -31,9 +31,8 @@ public class Main {
         taktiikka.getWholeTeamStrategyFromFile(new File("TestiOff2.txt"));
         taktiikka.setWholeTeamOnTheField(kentta);
 
-        for (Player player : kentta.getPlayers()) {
-            System.out.println(player);
-        }
+        System.out.println(team1);
+
         //_________________________________________________________________________________________________________
         //        PlayerInfo leSeanMcCoy = new PlayerInfo("LeSean McCoy", 25, "RB");
         //        int[] alkupaikka1 = {27, 10};
