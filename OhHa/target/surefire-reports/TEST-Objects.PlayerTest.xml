@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="30" failures="0" name="Objects.PlayerTest" time="0.033" errors="0" skipped="0">
+<testsuite tests="30" failures="0" name="Objects.PlayerTest" time="0.007" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_65\jre\bin"/>
@@ -61,19 +61,19 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Objects.PlayerTest" name="testIsBallCarrier" time="0.001"/>
-  <testcase classname="Objects.PlayerTest" name="testGetPlayersNextMove" time="0.005"/>
-  <testcase classname="Objects.PlayerTest" name="testSetPlayerStrategy" time="0.009"/>
-  <testcase classname="Objects.PlayerTest" name="testToString" time="0.001"/>
-  <testcase classname="Objects.PlayerTest" name="testMovePlayer0" time="0.005"/>
+  <testcase classname="Objects.PlayerTest" name="testIsBallCarrier" time="0"/>
+  <testcase classname="Objects.PlayerTest" name="testGetPlayersNextMove" time="0"/>
+  <testcase classname="Objects.PlayerTest" name="testSetPlayerStrategy" time="0"/>
+  <testcase classname="Objects.PlayerTest" name="testToString" time="0"/>
+  <testcase classname="Objects.PlayerTest" name="testMovePlayer0" time="0"/>
   <testcase classname="Objects.PlayerTest" name="testMovePlayer1" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testMovePlayer2" time="0"/>
+  <testcase classname="Objects.PlayerTest" name="testMovePlayer2" time="0.001"/>
   <testcase classname="Objects.PlayerTest" name="testMovePlayer3" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testMovePlayer4" time="0.001"/>
+  <testcase classname="Objects.PlayerTest" name="testMovePlayer4" time="0"/>
   <testcase classname="Objects.PlayerTest" name="testMovePlayer5" time="0"/>
   <testcase classname="Objects.PlayerTest" name="testMovePlayer6" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testMovePlayer7" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testMovePlayer8" time="0.001"/>
+  <testcase classname="Objects.PlayerTest" name="testMovePlayer7" time="0.001"/>
+  <testcase classname="Objects.PlayerTest" name="testMovePlayer8" time="0"/>
   <testcase classname="Objects.PlayerTest" name="testMovePlayer9" time="0"/>
   <testcase classname="Objects.PlayerTest" name="testGetLocation" time="0"/>
   <testcase classname="Objects.PlayerTest" name="testGetPlayerIcon" time="0"/>
@@ -85,10 +85,10 @@
   <testcase classname="Objects.PlayerTest" name="testTryMovePlayer4" time="0"/>
   <testcase classname="Objects.PlayerTest" name="testTryMovePlayer5" time="0"/>
   <testcase classname="Objects.PlayerTest" name="testTryMovePlayer6" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testTryMovePlayer7" time="0.001"/>
+  <testcase classname="Objects.PlayerTest" name="testTryMovePlayer7" time="0"/>
   <testcase classname="Objects.PlayerTest" name="testTryMovePlayer8" time="0"/>
   <testcase classname="Objects.PlayerTest" name="testTryMovePlayer9" time="0"/>
-  <testcase classname="Objects.PlayerTest" name="testTryMovePlayer" time="0"/>
+  <testcase classname="Objects.PlayerTest" name="testTryMovePlayer" time="0.001"/>
   <testcase classname="Objects.PlayerTest" name="testMovePlayer" time="0"/>
   <testcase classname="Objects.PlayerTest" name="testGiveBall" time="0"/>
 </testsuite>

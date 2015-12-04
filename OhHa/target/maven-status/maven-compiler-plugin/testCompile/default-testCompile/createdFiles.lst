@@ -3,8 +3,10 @@ Objects\FieldTest.class
 Objects\TeamTest.class
 tools\StrategyReaderTest.class
 Objects\PlayerTest.class
+PlayerLogic\DefenceStrategies\ManCoverTest.class
 PlayerLogic\RouteReaderTest.class
 tools\RandomizerTest.class
 PlayerLogic\Strategies\RouteRunnerTest.class
+PlayerLogic\DefenceStrategies\PassRusherTest.class
 tools\TeamCreatorTest.class
 PlayerLogic\PlayerMoverTest.class

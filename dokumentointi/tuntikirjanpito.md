@@ -16,17 +16,29 @@ n.4h laiskasti asian pyörittelyä, rakenteen hahmottelua.
 6.11.15
 3h Luokkakaavio ja pitin kanssa taistelua.
 
-18.11.15
+11.11.15
 4h koodasin juttuja. salee myös 19.11 koodasin jotain
 
-20.11.15
+13.11.15
 1h istuin baarissa ja piiretlin luokkakaavioita 
 
-25.11.15
+18.11.15
 3h koodausta
 
-26.11.15
+19.11.15
 3h koodausta
 
-27.11.15
+20.11.15
 2h koodausta
+
+24.11.15
+6h työstin lukijaa jolla saa joukkueen tiedot haettua .txt tiedostosta
+
+25.11.15
+8h edelliseen jatkoa, plus strategioiden hakeminen .txt tiedostoista
+
+26.11.15 
+4h pelaajat liikkuvat nyt kentällä suht fiksusti
+
+4.12.15
+6h pelimekaniikan kehittämistä, se loppusuoralla. satunnaisuutta liikkeisiin

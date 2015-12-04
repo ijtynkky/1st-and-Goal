@@ -5,6 +5,9 @@
  */
 package PlayerLogic.Strategies;
 
+import Objects.Field;
+import Objects.Player;
+import Objects.PlayerInfo;
 import PlayerLogic.OffensiveStrategies.RouteRunner;
 import PlayerLogic.PlayerStrategy;
 import org.junit.After;

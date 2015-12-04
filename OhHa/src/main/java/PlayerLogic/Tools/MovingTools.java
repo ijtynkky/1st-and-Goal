@@ -108,6 +108,7 @@ public class MovingTools {
     }
 
     public boolean tackle() {
-        return random.testRandom(30);
+        return true;
+//return random.testRandom(30);
     }
 }
