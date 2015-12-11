@@ -7,7 +7,9 @@ package GameLogic;
 
 import Graphics.SimpleGraphics;
 import Objects.Field;
-import tools.BallTool;
+import UserInterface.UserInterface;
+import PlayerLogic.Tools.PassTool;
+import tools.DistanceTool;
 
 /**
  *
@@ -18,56 +20,26 @@ public class PlayDown {
     private MoveFrame moveFrame;
     private Field field;
     private SimpleGraphics piirturi;
-    private BallTool ballTool;
+    private PassTool ballTool;
+    private DistanceTool dt;
 
-    public PlayDown(Field field) {
-        this.moveFrame = new MoveFrame(field);
+    public PlayDown(Field field, UserInterface ui) {
+        this.dt = new DistanceTool();
+        this.moveFrame = new MoveFrame(field, dt);
         this.field = field;
-        this.piirturi = new SimpleGraphics();
-        this.ballTool = new BallTool();
+        this.piirturi = new SimpleGraphics(ui);
+        this.ballTool = new PassTool(dt);
     }
 
-    public void move() {
+    public void move() throws InterruptedException {
         piirturi.drawField(field);
-        ballTool.passBall(field.playerWIthBall(), field.getPlayerOff(1));
+        ballTool.passBall(field, field.playerWIthBall(), field.getPlayerOff(1));
         piirturi.drawField(field);
         System.out.println("PLAY");
-        boolean continuePlay = true;
-        int i = 0;
-        while (continuePlay) {
+        while (moveFrame.getContinuePlay()) {
             this.moveFrame.move(this.field);
-            if (this.checkIsPlayerWithBallDown()) {
-                int playerDownAt = this.field.getSize()[1] - this.field.getBallDropedY();
-                System.out.println("PLAYER DOWN " + playerDownAt + " YARDS TO ENDZONE");
-
-                continuePlay = !checkIsPlayerWithBallDown();
-            }
-            if (this.checkTD()) {
-                System.out.println("TOUCHDOWN!!!!!!");
-
-                continuePlay = !this.checkTD();
-            }
-            i++;
             this.piirturi.drawField(this.field);
-            if (i > 20) {
-                continuePlay = false;
-            }
-        }
-    }
-
-    public boolean checkTD() {
-        if (field.getBallDropedY() != 999) {
-            return false;
-        } else {
-            return (2 == (this.field.partOfField(this.field.playerWIthBall().getLocation())));
-        }
-    }
-
-    public boolean checkIsPlayerWithBallDown() {
-        if (this.field.getBallDropedY() != 999) {
-            return true;
-        } else {
-            return false;
+            Thread.sleep(800);
         }
     }
 }

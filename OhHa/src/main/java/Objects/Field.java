@@ -26,6 +26,20 @@ public class Field {
     }
 
     //asettaa hyökkäyksen pelaajan annetuun kohtaa pelikentällä
+    /*
+     OFF:
+     1   QB                  
+     2   LT                 
+     3   LG
+     4   C
+     5   RG
+     6   RT
+     7   RB
+     8   TE
+     9   WR
+     10  WR
+     11  WR
+     */
     public void addPlayerOffensive(int position, Player player) {
         if (0 < position && position < 12) {
             int[] addToThisLocation = player.getStartingLocation();

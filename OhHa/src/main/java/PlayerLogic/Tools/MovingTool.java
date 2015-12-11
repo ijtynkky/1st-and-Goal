@@ -1,6 +1,8 @@
 package PlayerLogic.Tools;
 
 import Objects.Field;
+import Objects.Player;
+import tools.DistanceTool;
 import tools.Randomizer;
 
 /*MOVING
@@ -10,13 +12,14 @@ import tools.Randomizer;
  1 2 3
     
  */
-public class MovingTools {
+public class MovingTool {
 
     private Randomizer random;
+    private DistanceTool dt;
 
-    public MovingTools() {
+    public MovingTool() {
         this.random = new Randomizer();
-
+        this.dt = new DistanceTool();
     }
 
     public int directonTowardsPointB(int[] pointA, int[] pointB) {
@@ -59,9 +62,16 @@ public class MovingTools {
         }
     }
 
+    public int awayFromTheClosestOpponent(Field field, Player player) {
+        int[] awayFromThis = dt.nearestOpponentPlayerLocation(field, player);
+        int a = player.getLocation()[0] - (awayFromThis[0] - player.getLocation()[0]);
+        int b = player.getLocation()[1] - (awayFromThis[1] - player.getLocation()[1]);
+        return this.directonTowardsPointB(player.getLocation(), new int[]{a, b});
+    }
     /*
     
      */
+
     public int dodge(int preferedDirection) {
         int option1 = 0;
         int option2 = 0;
@@ -108,7 +118,6 @@ public class MovingTools {
     }
 
     public boolean tackle() {
-        return true;
-//return random.testRandom(30);
+    return random.testRandom(30);
     }
 }

@@ -2,7 +2,7 @@ package PlayerLogic.DefenceStrategies;
 
 import Objects.Field;
 import PlayerLogic.PlayerStrategy;
-import PlayerLogic.Tools.MovingTools;
+import PlayerLogic.Tools.MovingTool;
 import PlayerLogic.Tools.RouteReader;
 
 /**
@@ -45,7 +45,7 @@ public class PassRusher implements PlayerStrategy {
 
     @Override
     public int getNextMove(Field field, int[] playerLocation) {
-        MovingTools mTools = new MovingTools();
+        MovingTool mTools = new MovingTool();
         if (this.routeCounter + 1 < this.optionaRoute.length()) {
             RouteReader reader = new RouteReader();
             return reader.readRoute(optionaRoute, routeCounter);

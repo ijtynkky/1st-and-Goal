@@ -1,5 +1,6 @@
 package Objects;
 
+import PlayerLogic.OffensiveStrategies.Quaterback;
 import PlayerLogic.PlayerStrategy;
 import PlayerLogic.PlayerStrategy;
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ public class Player {
 
     public String getPlayerIcon() {
         if (this.hasBall) {
-            return "B";
+            return "0";
         } else {
             return "" + this.playerIcon;
         }
@@ -150,6 +151,15 @@ public class Player {
         return this.strategy.getNextMove(field, this.location);
     }
 
+    public Quaterback getQBStrategy() {
+        if (this.strategy.getClass().equals(Quaterback.class)) {
+            return (Quaterback) this.strategy;
+        } else {
+            return null;
+        }
+    }
+}
+
 //    public void addNewLocation() {
 //        ArrayList<int[]> newList = new ArrayList();
 //        newList.add(this.location);
@@ -164,4 +174,4 @@ public class Player {
 //    public ArrayList<int[]> getLastFiveLocations() {
 //        return this.lastFiveLocations;
 //    }
-}
+

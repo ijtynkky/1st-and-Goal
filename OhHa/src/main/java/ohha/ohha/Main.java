@@ -6,17 +6,23 @@ import Objects.*;
 import PlayerLogic.*;
 import PlayerLogic.DefenceStrategies.ManCover;
 import PlayerLogic.OffensiveStrategies.RouteRunner;
+import UserInterface.UserInterface;
 import java.io.File;
 import java.io.FileNotFoundException;
+import javax.swing.SwingUtilities;
 import teamStrategy.TeamStrategyDefence;
 import teamStrategy.TeamStrategyOffence;
 import tools.TeamCreator;
 
 public class Main {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException, InterruptedException {
+
+        UserInterface kayttoliittyma = new UserInterface();
 
         Field kentta = new Field(53, 20);
+        PlayDown pelaaAlas = new PlayDown(kentta, kayttoliittyma);
+
         TeamCreator luoja = new TeamCreator();
         Team team2 = luoja.create(new File("SEA.txt"));
         System.out.println(team2);
@@ -47,8 +53,8 @@ public class Main {
         //
         //        kentta.addPlayer(leSean);
         //        kentta.addPlayer(def);
-        PlayDown pelaaAlas = new PlayDown(kentta);
-
+        SwingUtilities.invokeLater(kayttoliittyma);
         pelaaAlas.move();
+
     }
 }

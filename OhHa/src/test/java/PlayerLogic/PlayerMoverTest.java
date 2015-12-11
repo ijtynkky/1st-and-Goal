@@ -10,6 +10,7 @@ import Objects.Field;
 import Objects.Player;
 import Objects.PlayerInfo;
 import PlayerLogic.OffensiveStrategies.RouteRunner;
+import PlayerLogic.Tools.MovingTool;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -58,8 +59,9 @@ public class PlayerMoverTest {
         qb.setLocation(alkupaikka1);
         System.out.println("Payton on QB");
 
-        PlayerMover instance = new PlayerMover(field);
-        instance.movePlayer(qb);
+        MovingTool mt = new MovingTool();
+        PlayerMover instance = new PlayerMover(mt);
+        instance.movePlayer(field, qb);
         int[] expResult = {2, 3};
         int[] result = qb.getLocation();
         Assert.assertArrayEquals(expResult, result);
@@ -78,25 +80,26 @@ public class PlayerMoverTest {
         qb.setLocation(alkupaikka1);
         System.out.println("Payton on QB");
 
-        PlayerMover instance = new PlayerMover(field);
-        instance.movePlayer(qb);
-        instance.movePlayer(qb);
-        instance.movePlayer(qb);
-        instance.movePlayer(qb);
-        instance.movePlayer(qb);
-        instance.movePlayer(qb);
-        instance.movePlayer(qb);
-        instance.movePlayer(qb);
-        instance.movePlayer(qb);
-        instance.movePlayer(qb);
-        instance.movePlayer(qb);
-        instance.movePlayer(qb);
-        instance.movePlayer(qb);
-        instance.movePlayer(qb);
-        instance.movePlayer(qb);
-        instance.movePlayer(qb);
-        instance.movePlayer(qb);
-        instance.movePlayer(qb);
+        MovingTool mt = new MovingTool();
+        PlayerMover instance = new PlayerMover(mt);
+        instance.movePlayer(field, qb);
+        instance.movePlayer(field, qb);
+        instance.movePlayer(field, qb);
+        instance.movePlayer(field, qb);
+        instance.movePlayer(field, qb);
+        instance.movePlayer(field, qb);
+        instance.movePlayer(field, qb);
+        instance.movePlayer(field, qb);
+        instance.movePlayer(field, qb);
+        instance.movePlayer(field, qb);
+        instance.movePlayer(field, qb);
+        instance.movePlayer(field, qb);
+        instance.movePlayer(field, qb);
+        instance.movePlayer(field, qb);
+        instance.movePlayer(field, qb);
+        instance.movePlayer(field, qb);
+        instance.movePlayer(field, qb);
+        instance.movePlayer(field, qb);
         int[] expResult = {3, 3};
         int[] result = qb.getLocation();
         Assert.assertArrayEquals(expResult, result);
@@ -106,24 +109,25 @@ public class PlayerMoverTest {
     @Test
     public void testMoveRouteAlasYos() {
         System.out.println("moveRoute");
-        Field field = new Field(5, 5);
+        Field field = new Field(53, 20);
 
         PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
-        int[] alkupaikka1 = {3, 3};
-        String reitti = "22222222888888888888888888";
+        int[] alkupaikka1 = {1, 1};
+        String reitti = "288888888888888888888888888888888888888";
         RouteRunner testiOff = new RouteRunner(alkupaikka1, reitti, "@");
         Player qb = new Player(pManning, testiOff);
         qb.setLocation(alkupaikka1);
         System.out.println("Payton on QB");
 
-        PlayerMover instance = new PlayerMover(field);
+        MovingTool mt = new MovingTool();
+        PlayerMover instance = new PlayerMover(mt);
         int i = 0;
         while (i < reitti.length()) {
-            instance.movePlayer(qb);
+            instance.movePlayer(field, qb);
             i++;
         }
 
-        int[] expResult = {3, 15};
+        int[] expResult = {1, 30};
         int[] result = qb.getLocation();
         Assert.assertArrayEquals(expResult, result);
 
@@ -141,10 +145,11 @@ public class PlayerMoverTest {
         qb.setLocation(alkupaikka1);
         System.out.println("Payton on QB");
 
-        PlayerMover instance = new PlayerMover(field);
-        instance.movePlayer(qb);
-        instance.movePlayer(qb);
-        instance.movePlayer(qb);
+        MovingTool mt = new MovingTool();
+        PlayerMover instance = new PlayerMover(mt);
+        instance.movePlayer(field, qb);
+        instance.movePlayer(field, qb);
+        instance.movePlayer(field, qb);
         int[] expResult = {1, 1};
         int[] result = qb.getLocation();
         Assert.assertArrayEquals(expResult, result);
@@ -154,11 +159,11 @@ public class PlayerMoverTest {
     @Test
     public void testMovePlayerOneStep() {
         System.out.println("movePlayerOneStep");
-        SimpleGraphics piirturi = new SimpleGraphics();
 
         Field field = new Field(53, 20);
 
-        PlayerMover testMover = new PlayerMover(field);
+        MovingTool mt = new MovingTool();
+        PlayerMover testMover = new PlayerMover(mt);
 
         PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
         int[] alkupaikka1 = {2, 2};
@@ -168,22 +173,20 @@ public class PlayerMoverTest {
 
         field.addPlayerOffensive(1, qb);
         System.out.println("Payton on kentällä");
-        piirturi.drawField(field);
         Player instance = qb;
         boolean expResult = true;
-        boolean result = testMover.movePlayerOneStep(instance, 2);
-        piirturi.drawField(field);
+        boolean result = testMover.movePlayerOneStep(field, instance, 2);
         assertEquals(expResult, result);
     }
 
     @Test
     public void testMovePlayerOneStep2() {
         System.out.println("movePlayerOneStep2");
-        SimpleGraphics piirturi = new SimpleGraphics();
 
         Field field = new Field(53, 20);
 
-        PlayerMover testMover = new PlayerMover(field);
+        MovingTool mt = new MovingTool();
+        PlayerMover testMover = new PlayerMover(mt);
 
         PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
         int[] alkupaikka1 = {1, 10};
@@ -194,22 +197,20 @@ public class PlayerMoverTest {
         field.addPlayerOffensive(1, qb);
 
         System.out.println("Payton on kentällä");
-        piirturi.drawField(field);
         Player instance = qb;
         boolean expResult = false;
-        boolean result = testMover.movePlayerOneStep(instance, 2);
-        piirturi.drawField(field);
+        boolean result = testMover.movePlayerOneStep(field, instance, 2);
         assertEquals(expResult, result);
     }
 
     @Test
     public void testMovePlayerOneStep3() {
         System.out.println("movePlayerOneStep TD!!!!");
-        SimpleGraphics piirturi = new SimpleGraphics();
 
         Field field = new Field(53, 20);
 
-        PlayerMover testMover = new PlayerMover(field);
+        MovingTool mt = new MovingTool();
+        PlayerMover testMover = new PlayerMover(mt);
 
         PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
         int[] alkupaikka1 = {5, 5};
@@ -221,23 +222,21 @@ public class PlayerMoverTest {
         qb.setLocation(new int[]{53, 20});
         System.out.println("Payton on kentällä");
 
-        piirturi.drawField(field);
         Player instance = qb;
         boolean expResult = true;
-        testMover.movePlayerOneStep(instance, 8);
+        testMover.movePlayerOneStep(field, instance, 8);
         boolean result = field.partOfField(instance.getLocation()) == 2;
-        piirturi.drawField(field);
         assertEquals(expResult, result);
     }
 
     @Test
     public void testMovePlayerOneStep4() {
         System.out.println("movePlayerOneStep");
-        SimpleGraphics piirturi = new SimpleGraphics();
 
         Field field = new Field(53, 20);
 
-        PlayerMover testMover = new PlayerMover(field);
+        MovingTool mt = new MovingTool();
+        PlayerMover testMover = new PlayerMover(mt);
 
         PlayerInfo pManning = new PlayerInfo("Payton Manning", 18);
         int[] alkupaikka1 = {4, 4};
@@ -248,15 +247,11 @@ public class PlayerMoverTest {
         field.addPlayerOffensive(1, qb);
         qb.setLocation(alkupaikka1);
         System.out.println("Payton on kentällä");
-        piirturi.drawField(field);
-        testMover.movePlayerOneStep(qb, 8);
-        piirturi.drawField(field);
-        testMover.movePlayerOneStep(qb, 8);
-        piirturi.drawField(field);
+        testMover.movePlayerOneStep(field, qb, 8);
+        testMover.movePlayerOneStep(field, qb, 8);
         Player instance = qb;
         boolean expResult = true;
-        boolean result = testMover.movePlayerOneStep(instance, 8);
-        piirturi.drawField(field);
+        boolean result = testMover.movePlayerOneStep(field, instance, 8);
         assertEquals(expResult, result);
     }
 
@@ -275,9 +270,10 @@ public class PlayerMoverTest {
         field.addPlayerOffensive(1, qb);
         qb.setLocation(alkupaikka1);
         System.out.println("Payton on kentällä");
-        PlayerMover instance = new PlayerMover(field);
-        instance.movePlayer(qb);
-        instance.movePlayer(qb);
+        MovingTool mt = new MovingTool();
+        PlayerMover instance = new PlayerMover(mt);
+        instance.movePlayer(field, qb);
+        instance.movePlayer(field, qb);
         int expResult = 12;
         int result = qb.getLocation()[1];
         assertEquals(expResult, result);

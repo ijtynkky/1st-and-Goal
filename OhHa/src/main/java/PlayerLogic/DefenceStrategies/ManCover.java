@@ -3,7 +3,7 @@ package PlayerLogic.DefenceStrategies;
 import Objects.Field;
 import Objects.Player;
 import PlayerLogic.PlayerStrategy;
-import PlayerLogic.Tools.MovingTools;
+import PlayerLogic.Tools.MovingTool;
 
 /**
  *Puolustajan strategia, jossa puolustaja seuraa nimettyä pelaajaa
@@ -53,7 +53,7 @@ public class ManCover implements PlayerStrategy {
             this.xAdjustment = 0;
             this.yAdjustment = 0;
         }
-        MovingTools mTool = new MovingTools();
+        MovingTool mTool = new MovingTool();
         int[] pointB = this.playerToFollow.getLocation();
         pointB[0] += this.xAdjustment;
         pointB[1] += this.yAdjustment;

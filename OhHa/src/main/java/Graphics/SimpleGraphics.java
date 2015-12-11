@@ -8,14 +8,22 @@ package Graphics;
 import Graphics.*;
 import Objects.*;
 import PlayerLogic.*;
+import UserInterface.UserInterface;
 
 public class SimpleGraphics {
 
+    private UserInterface ui;
+
+    public SimpleGraphics(UserInterface face) {
+        this.ui = face;
+    }
+
     public void drawField(Field field) {
+        ui.empty();
         int i = field.getSize()[1] + 10;
         while (i != 0) {
             this.DrawRow(field, i);
-            System.out.println("");
+            ui.print("\n");
             i--;
         }
     }
@@ -39,15 +47,15 @@ public class SimpleGraphics {
             int[] square = {i, y};
             Player player = field.getPlayerInThisPlace(square);
             if (player != null) {
-                System.out.print(player.getPlayerIcon());
+                ui.print(player.getPlayerIcon());
             } else {
                 int fieldType = field.partOfField(square);
                 if (fieldType == 1) {
-                    System.out.print(",");
+                    ui.print(",");
                 } else if (fieldType == 2) {
-                    System.out.print("$");
+                    ui.print("$");
                 } else if (fieldType == 4) {
-                    System.out.print("-");
+                    ui.print("-");
                 }
             }
             i++;

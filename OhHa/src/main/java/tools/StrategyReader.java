@@ -7,6 +7,7 @@ package tools;
 
 import PlayerLogic.*;
 import PlayerLogic.DefenceStrategies.PassRusher;
+import PlayerLogic.OffensiveStrategies.Quaterback;
 import PlayerLogic.OffensiveStrategies.RouteRunner;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -35,12 +36,37 @@ public class StrategyReader {
         String strategy = reader.nextLine();
         int[] startingLocation = tools.readLocation(reader.nextLine());
         String icon = reader.nextLine();
-        if (strategy.equals("RouteRunner")) {
+        //OFFENCE POSITIONS
+        if (strategy.equals("QB")) {
             String route = reader.nextLine();
-            RouteRunner returnThis = new RouteRunner(startingLocation, route, icon);
+            int passTimer = Integer.parseInt(reader.nextLine());
+            Quaterback returnThis = new Quaterback(startingLocation, "B", route, passTimer);
+            String read = "";
+            int i = 1;
+            while (true) {
+                read = reader.nextLine();
+                if (read.equals("*")) {
+                    break;
+                }
+                returnThis.setPassTarget(i, Integer.parseInt(read));
+                i++;
+            }
             return returnThis;
         }
-
+        if (strategy.equals("RouteRunner")) {
+            String route = reader.nextLine();
+            RouteRunner returnThis = new RouteRunner(startingLocation, route, "B");
+            return returnThis;
+        }
+        //DEFNECE POSITIONS
+        if (strategy.equals("PassRusher")) {
+            PassRusher returnThis = new PassRusher(startingLocation, "S");
+            String readNext = reader.nextLine();
+            if (!readNext.equals("*")) {
+                returnThis.setRoute(readNext);
+            }
+            return returnThis;
+        }
         if (strategy.equals("PassRusher")) {
             PassRusher returnThis = new PassRusher(startingLocation, icon);
             String readNext = reader.nextLine();
@@ -49,6 +75,7 @@ public class StrategyReader {
             }
             return returnThis;
         }
+
         return null;
     }
 
