@@ -3,9 +3,11 @@ PlayerLogic\Tools\PassTool.class
 UserInterface\UserInterface.class
 PlayerLogic\DefenceStrategies\PassRusher.class
 GameLogic\MoveFrame.class
+PlayerLogic\DefPlayerStrategy.class
 tools\DistanceTool.class
 PlayerLogic\PlayerMover.class
 PlayerLogic\Tools\RouteReader.class
+PlayerLogic\DefenceStrategies\ZoneCover.class
 Objects\Team.class
 PlayerLogic\QBMover.class
 tools\TeamCreator.class
@@ -19,7 +21,6 @@ PlayerLogic\OffensiveStrategies\RouteRunner.class
 PlayerLogic\PlayerStrategy.class
 Graphics\SimpleGraphics.class
 tools\StrategyReader.class
-Objects\ObjectTools.class
 ohha\ohha\Main.class
 PlayerLogic\DefenceStrategies\ManCover.class
 PlayerLogic\Tools\MovingTool.class

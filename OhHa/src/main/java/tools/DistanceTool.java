@@ -18,13 +18,13 @@ public class DistanceTool {
         return Math.sqrt(Math.pow((b[0] - a[0]), 2) + Math.pow((b[1] - a[1]), 2));
     }
 
-    public int[] nearestOpponentPlayerLocation(Field field, Player player) {
+    public int[] nearestOpponentPlayerLocation(Field field, int[] playerLocation, boolean isOffencive) {
         int[] locationOfClosestOpponent = new int[]{0, 0};
         double shortestDistance = 999;
         for (Player opponent : field.getPlayers()) {
-            if (opponent.askIsOffence() != player.askIsOffence()) {
-                if (this.getDistance(player.getLocation(), opponent.getLocation()) < shortestDistance) {
-                    shortestDistance = this.getDistance(player.getLocation(), opponent.getLocation());
+            if (opponent.askIsOffence() != isOffencive) {
+                if (this.getDistance(playerLocation, opponent.getLocation()) < shortestDistance) {
+                    shortestDistance = this.getDistance(playerLocation, opponent.getLocation());
                     locationOfClosestOpponent = opponent.getLocation();
                 }
             }
@@ -33,7 +33,7 @@ public class DistanceTool {
     }
 
     public double getDistanceToNearestOpponent(Field field, Player player) {
-        return this.getDistance(player.getLocation(), this.nearestOpponentPlayerLocation(field, player));
+        return this.getDistance(player.getLocation(), this.nearestOpponentPlayerLocation(field, player.getLocation(), player.askIsOffence()));
     }
 
 }

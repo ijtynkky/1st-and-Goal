@@ -10,6 +10,7 @@ C:\Users\I\Documents\GitHub\1st-and-Goal\OhHa\src\main\java\Objects\Field.java
 C:\Users\I\Documents\GitHub\1st-and-Goal\OhHa\src\main\java\PlayerLogic\Tools\RouteReader.java
 C:\Users\I\Documents\GitHub\1st-and-Goal\OhHa\src\main\java\Objects\Team.java
 C:\Users\I\Documents\GitHub\1st-and-Goal\OhHa\src\main\java\ohha\ohha\Main.java
+C:\Users\I\Documents\GitHub\1st-and-Goal\OhHa\src\main\java\PlayerLogic\DefPlayerStrategy.java
 C:\Users\I\Documents\GitHub\1st-and-Goal\OhHa\src\main\java\Objects\Player.java
 C:\Users\I\Documents\GitHub\1st-and-Goal\OhHa\src\main\java\teamStrategy\TeamStrategyDefence.java
 C:\Users\I\Documents\GitHub\1st-and-Goal\OhHa\src\main\java\Objects\PlayerInfo.java
@@ -22,6 +23,6 @@ C:\Users\I\Documents\GitHub\1st-and-Goal\OhHa\src\main\java\tools\DistanceTool.j
 C:\Users\I\Documents\GitHub\1st-and-Goal\OhHa\src\main\java\tools\Randomizer.java
 C:\Users\I\Documents\GitHub\1st-and-Goal\OhHa\src\main\java\PlayerLogic\Tools\PassTool.java
 C:\Users\I\Documents\GitHub\1st-and-Goal\OhHa\src\main\java\PlayerLogic\PlayerMover.java
+C:\Users\I\Documents\GitHub\1st-and-Goal\OhHa\src\main\java\PlayerLogic\DefenceStrategies\ZoneCover.java
 C:\Users\I\Documents\GitHub\1st-and-Goal\OhHa\src\main\java\teamStrategy\TeamStrategyOffence.java
-C:\Users\I\Documents\GitHub\1st-and-Goal\OhHa\src\main\java\Objects\ObjectTools.java
 C:\Users\I\Documents\GitHub\1st-and-Goal\OhHa\src\main\java\PlayerLogic\DefenceStrategies\ManCover.java

@@ -1,8 +1,3 @@
-/*
- Down viittaa jenkkifutiksessa yhteen yritykseen. PlayDown siis tulee 
- pyörittämään MoveFramen kautta läpi yhden pelitapahtuman kun taktiikat
- on syötetty sisään
- */
 package GameLogic;
 
 import Graphics.SimpleGraphics;
@@ -12,8 +7,9 @@ import PlayerLogic.Tools.PassTool;
 import tools.DistanceTool;
 
 /**
- *
- * @author I
+ * Down viittaa jenkkifutiksessa yhteen hyökkäysyritykseen. PlayDown
+ * pyörittää MoveFramen kautta läpi yhden hyökkäysyrityksen, sekä hoitaa
+ * pelikentän piirturin päivittämisen. 
  */
 public class PlayDown {
 
@@ -31,11 +27,22 @@ public class PlayDown {
         this.ballTool = new PassTool(dt);
     }
 
+    
+    /*
+    Aluksi kenttä, ja pelaajat piirretään alkuasemissa.
+    Down (hyökkäysyritys) lähtee liikkeelle keskushyökkääjän (Center, C) antaessa
+    pallon quaterbackille (QB), ja piirturilla päivitetään pelikentän näkymä.
+    Hyökkäysyritys jatkuu niin kauan kun MoveFramelta tulee tieto, että peli ei 
+    jatku.
+    Jokaisen MoveFramen jälkeen pelikenttä piirretään uudestaan UserInterfaceen.
+    */
     public void move() throws InterruptedException {
         piirturi.drawField(field);
+        Thread.sleep(800);
+        System.out.println("PLAY");
         ballTool.passBall(field, field.playerWIthBall(), field.getPlayerOff(1));
         piirturi.drawField(field);
-        System.out.println("PLAY");
+        Thread.sleep(800);
         while (moveFrame.getContinuePlay()) {
             this.moveFrame.move(this.field);
             this.piirturi.drawField(this.field);

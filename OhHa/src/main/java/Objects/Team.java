@@ -13,7 +13,7 @@ public class Team {
     private String name;
     private static final String[] POSITIONS = new String[]{ //Pelipaikkojen lyhenteet
         "QB", "FB", "RB", "WR", "TE",
-        "LT", "LG", "C", "RT", "RG", "DE", "NT", "LB", "CB", "SS"};
+        "LT", "LG", "C", "RT", "RG", "DE", "DT", "LB", "CB", "SS"};
 
     public Team(String name) {
         this.name = name;

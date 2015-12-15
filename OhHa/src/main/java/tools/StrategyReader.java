@@ -5,8 +5,11 @@
  */
 package tools;
 
+import Objects.Field;
 import PlayerLogic.*;
+import PlayerLogic.DefenceStrategies.ManCover;
 import PlayerLogic.DefenceStrategies.PassRusher;
+import PlayerLogic.DefenceStrategies.ZoneCover;
 import PlayerLogic.OffensiveStrategies.Quaterback;
 import PlayerLogic.OffensiveStrategies.RouteRunner;
 import java.io.File;
@@ -28,8 +31,8 @@ public class StrategyReader {
     }
 
     public PlayerStrategy getStrategy(String strategyName) throws FileNotFoundException {
+        String lineRead = "asdf";
         Scanner reader = new Scanner(this.file);
-        String lineRead = "";
         while (!lineRead.contains(strategyName) || !reader.hasNextLine()) {
             lineRead = reader.nextLine();
         }
@@ -67,11 +70,22 @@ public class StrategyReader {
             }
             return returnThis;
         }
-        if (strategy.equals("PassRusher")) {
-            PassRusher returnThis = new PassRusher(startingLocation, icon);
+        if (strategy.equals("ZoneCover")) {
+            ZoneCover returnThis = new ZoneCover(startingLocation, "S");
             String readNext = reader.nextLine();
             if (!readNext.equals("*")) {
-                returnThis.setRoute(readNext);
+                returnThis.setZoneCenter(tools.readLocation(readNext));
+            }
+            return returnThis;
+        }
+
+        if (strategy.equals("ManCover")) {
+            ManCover returnThis = new ManCover(startingLocation, "S");
+            String readNext = reader.nextLine();
+            if (!readNext.equals("*")) {
+                int x = readNext.length() - 3;
+                int y = reader.nextLine().length() - 3;
+                returnThis.setAdjustmen(x, y);
             }
             return returnThis;
         }

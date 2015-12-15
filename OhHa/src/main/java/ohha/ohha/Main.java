@@ -24,35 +24,22 @@ public class Main {
         PlayDown pelaaAlas = new PlayDown(kentta, kayttoliittyma);
 
         TeamCreator luoja = new TeamCreator();
-        Team team2 = luoja.create(new File("SEA.txt"));
-        System.out.println(team2);
 
-        TeamStrategyDefence puolustusTaktiikka = new TeamStrategyDefence(team2);
-
-        puolustusTaktiikka.getDefenceFromFile(new File("TestiDef.txt"));
-        puolustusTaktiikka.setWholeTeamOnTheField(kentta);
-
-        Team team1 = luoja.create(new File("DEN.txt"));
+        Team team1 = luoja.create(new File("Files\\Teams\\DEN.txt"));
         TeamStrategyOffence taktiikka = new TeamStrategyOffence(team1);
-        taktiikka.getWholeTeamStrategyFromFile(new File("TestiOff2.txt"));
+        taktiikka.getWholeTeamStrategyFromFile(new File("Files\\TestFiles\\TestiOff2.txt"));
         taktiikka.setWholeTeamOnTheField(kentta);
 
         System.out.println(team1);
 
-        //_________________________________________________________________________________________________________
-        //        PlayerInfo leSeanMcCoy = new PlayerInfo("LeSean McCoy", 25, "RB");
-        //        int[] alkupaikka1 = {27, 10};
-        //        RouteRunner testiOff = new RouteRunner(alkupaikka1, "879987444448888888888", "@");
-        //        Player leSean = new Player(leSeanMcCoy, testiOff);
-        //        leSean.giveBall();
-        //
-        //        PlayerInfo jjWatt = new PlayerInfo("J.J. Watt", 99, "");
-        //        int[] alkupaikka2 = {27, 15};
-        //        PlayerStrategy testiDef = new ManCover(alkupaikka2, leSean, "J");
-        //        Player def = new Player(jjWatt, testiDef);
-        //
-        //        kentta.addPlayer(leSean);
-        //        kentta.addPlayer(def);
+        Team team2 = luoja.create(new File("Files\\Teams\\SEA.txt"));
+        System.out.println(team2);
+
+        TeamStrategyDefence puolustusTaktiikka = new TeamStrategyDefence(team2);
+
+        puolustusTaktiikka.getDefenceFromFile(new File("Files\\TestFiles\\TestiDef.txt"));
+        puolustusTaktiikka.setWholeTeamOnTheField(kentta);
+        
         SwingUtilities.invokeLater(kayttoliittyma);
         pelaaAlas.move();
 

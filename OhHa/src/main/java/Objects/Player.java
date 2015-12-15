@@ -1,5 +1,6 @@
 package Objects;
 
+import PlayerLogic.DefPlayerStrategy;
 import PlayerLogic.OffensiveStrategies.Quaterback;
 import PlayerLogic.PlayerStrategy;
 import PlayerLogic.PlayerStrategy;
@@ -43,6 +44,8 @@ public class Player {
         return this.location;
     }
 
+    //Jos pelaajalla on pallo, on ikoni "0", muuten pelaajan oma ikoni
+    //(tällä hetkellä pelissä saman joukkueen pelaajat ovat kaikki samoja ikoneita)
     public String getPlayerIcon() {
         if (this.hasBall) {
             return "0";
@@ -158,8 +161,15 @@ public class Player {
             return null;
         }
     }
-}
 
+    public DefPlayerStrategy getDefPlayerStrategy() {
+        if (!this.askIsOffence()) {
+            return (DefPlayerStrategy) this.strategy;
+        } else {
+            return null;
+        }
+    }
+}
 //    public void addNewLocation() {
 //        ArrayList<int[]> newList = new ArrayList();
 //        newList.add(this.location);

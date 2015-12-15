@@ -25,7 +25,6 @@ public class Field {
         this.ballDropedInY = 999;
     }
 
-    //asettaa hyökkäyksen pelaajan annetuun kohtaa pelikentällä
     /*
      OFF:
      1   QB                  
@@ -40,6 +39,12 @@ public class Field {
      10  WR
      11  WR
      */
+    /**
+     * Asettaa hyökkäyksen pelaajan annetuun kohtaa pelikentällä.
+     * Kun pelaaja lisästään pelikentälle, tulee pelaajan aloituspaikka Player Strategyn
+     * kautta. PlayerStrategy kertoo aloituspaikan suhteessa line of skirmishiin (LoS)
+     * lisääminen päivittää pelaajan aloitus paikan Player oliolle itselleen.
+     */
     public void addPlayerOffensive(int position, Player player) {
         if (0 < position && position < 12) {
             int[] addToThisLocation = player.getStartingLocation();
@@ -48,7 +53,22 @@ public class Field {
             this.OffensivePlayers.put(position, player);
         }
     }
+    /*
+     DEF:
+     1   DT                  
+     2   DE                 
+     3   DE
+     4   LB
+     5   LB
+     6   LB
+     7   LB
+     8   CB
+     9   CB
+     10  SS
+     11  SS
+     */
 
+    //Kuten ylempi metodi, vaan peilikuvana
     public void addPlayerDefensive(int position, Player player) {
         if (0 < position && position < 12) {
             int[] addToThisLocation = player.getStartingLocation();
@@ -67,6 +87,7 @@ public class Field {
         return this.DefensivePlayers.get(i);
     }
 
+    //Palauttaa kaikki kentällä olevat pelaajat ArrayListinä
     public ArrayList<Player> getPlayers() {
         ArrayList<Player> returnThis = new ArrayList();
         for (Player player : this.OffensivePlayers.values()) {
@@ -78,6 +99,7 @@ public class Field {
         return returnThis;
     }
 
+    //Palauttaa kaikki sijainnit, joissa on pelaaja
     public ArrayList<int[]> getPlayerLocations() {
         ArrayList<int[]> locations = new ArrayList();
         for (Player player : getPlayers()) {
@@ -108,6 +130,13 @@ public class Field {
         return null;
     }
 
+    //metodilla asetetaan pallon tippumispaikka, ja vain y-suunta kiinnostaa. 
+    // Muiden luokkien metodit asettavat pallon tippuneeksi tarvittaessa
+    // Käytetään muitten luokkien testeissä, kun halutaan välttää null pointteria
+    // playerWithBallin kanssa.
+    // Pääasiallinen tehtävä on säilöä tieto siitä, mihin kohtaa pituussuunnssa
+    // pallo on "tiputettu", koska tuleva hyökkäysyritys jatkuisi siitä kohtaa
+    // (Seuraavan downin LoS = ballDropedInY
     public void setBallDropedY(int y) {
         this.ballDropedInY = y;
     }
@@ -115,15 +144,15 @@ public class Field {
     public int getBallDropedY() {
         return this.ballDropedInY;
     }
+    
+    public int getLineOfSkirmishInteger() {
+        return this.lenght - this.lineOfSkirmish;
+    }
 
     //grafiikoita varten:
     public int[] getSize() {
         int[] size = {this.widht, this.lenght};
         return size;
-    }
-
-    public int getLineOfSkirmishInteger() {
-        return this.lenght - this.lineOfSkirmish;
     }
 
     /*

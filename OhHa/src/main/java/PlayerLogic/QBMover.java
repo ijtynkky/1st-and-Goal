@@ -60,7 +60,7 @@ public class QBMover extends PlayerMover {
         //3.
         if (dt.getDistanceToNearestOpponent(field, player) < 1.5) {
             if (random.testRandom(50)) {
-                super.movePlayerOneStep(field, player, mt.awayFromTheClosestOpponent(field, player));
+                super.movePlayerOneStep(field, player, mt.awayClosestOpponent(field, player));
                 player.playerMoved(player.getLocation());
                 if (random.testRandom(50)) {
                     player.getQBStrategy().delayPass();
@@ -73,7 +73,7 @@ public class QBMover extends PlayerMover {
                     player.playerMoved(player.getLocation());
                 }
             if (random.testRandom(20)) {
-                super.movePlayerOneStep(field, player, mt.awayFromTheClosestOpponent(field, player));
+                super.movePlayerOneStep(field, player, mt.awayClosestOpponent(field, player));
                 player.playerMoved(player.getLocation());
                 return;
             }

@@ -5,6 +5,7 @@
  */
 package tools;
 
+import Objects.Field;
 import PlayerLogic.PlayerStrategy;
 import java.io.File;
 import org.junit.After;
@@ -44,13 +45,14 @@ public class StrategyReaderTest {
      */
     @Test
     public void testGetStrategy() throws Exception {
+        Field field = new Field(10, 10);
         System.out.println("getStrategy");
         String strategyName = "player1";
-        StrategyReader instance = new StrategyReader(new File("TestiOff2.txt"));
+        StrategyReader instance = new StrategyReader(new File("C:\\Users\\I\\Documents\\GitHub\\1st-and-Goal\\OhHa\\Files\\TestFiles\\TestiOff2.txt"));
         boolean expResult = true;
         boolean result = true;
         PlayerStrategy playerStrategy = instance.getStrategy(strategyName);
-        if (playerStrategy.getIcon() != 'Q') {
+        if (playerStrategy.getIcon() != 'B') {
             result = false;
             System.out.println("Icon false");
             System.out.println(playerStrategy.getIcon() + "");

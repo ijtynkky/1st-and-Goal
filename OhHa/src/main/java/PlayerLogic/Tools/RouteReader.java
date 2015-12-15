@@ -19,7 +19,7 @@ public class RouteReader {
 
     public int readRoute(String route, int moveCounter) {
         if (route.length() <= moveCounter) {
-            return 999;
+            return -999;
         }
         int readMove = Integer.parseInt(route.charAt(moveCounter) + "");
         return readMove;

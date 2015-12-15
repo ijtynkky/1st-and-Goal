@@ -5,6 +5,9 @@
  */
 package Objects;
 
+import PlayerLogic.DefPlayerStrategy;
+import PlayerLogic.DefenceStrategies.PassRusher;
+import PlayerLogic.OffensiveStrategies.Quaterback;
 import PlayerLogic.PlayerStrategy;
 import PlayerLogic.OffensiveStrategies.RouteRunner;
 import java.util.ArrayList;
@@ -127,7 +130,7 @@ public class PlayerTest {
      * Test of movePlayer method, of class Player. //
      */
     @Test
-    public void testMovePlayer0() {
+    public void testMovePlayer() {
         System.out.println("movePlayer");
         int direction = 0;
         PlayerInfo pManning = new PlayerInfo("Peyton Manning", 18);
@@ -490,7 +493,7 @@ public class PlayerTest {
      * Test of movePlayer method, of class Player.
      */
     @Test
-    public void testMovePlayer() {
+    public void testMovePlayer0() {
         System.out.println("movePlayer");
         int direction = 9;
         PlayerInfo pManning = new PlayerInfo("Peyton Manning", 18);
@@ -604,4 +607,57 @@ public class PlayerTest {
 //        boolean expResult = true;
 //        assertEquals(expResult, isThisTrue);
 //    }
+    /**
+     * Test of getStartingLocation method, of class Player.
+     */
+    @Test
+    public void testGetStartingLocation() {
+        System.out.println("getStartingLocation");
+        Player instance = new Player(new PlayerInfo("String", 0, "String"), new RouteRunner(new int[]{1, 1}, "String", "String"));
+        int[] expResult = {1, 1};
+        int[] result = instance.getStartingLocation();
+        assertArrayEquals(expResult, result);
+    }
+
+    /**
+     * Test of setLocation method, of class Player.
+     */
+    @Test
+    public void testSetLocation() {
+        System.out.println("setLocation");
+        int[] location = {2, 2};
+        Player instance = new Player(new PlayerInfo("String", 0, "String"), new RouteRunner(new int[]{1, 1}, "String", "String"));
+        instance.setLocation(location);
+        int[] expResult = {2, 2};
+        int[] result = instance.getLocation();
+        assertArrayEquals(expResult, result);
+    }
+
+    /**
+     * Test of getQBStrategy method, of class Player.
+     */
+    @Test
+    public void testGetQBStrategy() {
+        System.out.println("getQBStrategy");
+        Player instance = new Player(new PlayerInfo("String", 0, "String"), new Quaterback(new int[]{1, 1}, "String", "String", 5));
+        boolean expResult = true;
+        boolean result = instance.getQBStrategy().getIsOffensive() == true;
+        result = instance.getQBStrategy().getIcon() == 'S';
+        //result = instance.getQBStrategy().getStartingLocation() == new int[]{1, 1};
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getDefPlayerStrategy method, of class Player.
+     */
+    @Test
+    public void testGetDefPlayerStrategy() {
+        System.out.println("getDefPlayerStrategy");
+        Player instance = new Player(new PlayerInfo("String", 0, "String"), new PassRusher(new int[]{1, 1}, "String"));
+        boolean expResult = true;
+        boolean result = instance.getDefPlayerStrategy().getIsOffensive() == false;
+        result = instance.getDefPlayerStrategy().getIcon() == 'S';
+        //result = instance.getDefPlayerStrategy().getStartingLocation() == new int[]{1, 1};
+        assertEquals(expResult, result);
+    }
 }

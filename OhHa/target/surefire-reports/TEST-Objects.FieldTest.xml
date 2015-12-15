@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="12" failures="0" name="Objects.FieldTest" time="0.11" errors="0" skipped="0">
+<testsuite tests="22" failures="0" name="Objects.FieldTest" time="0.002" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_65\jre\bin"/>
@@ -61,16 +61,26 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Objects.FieldTest" name="testPartOfField1" time="0.005"/>
-  <testcase classname="Objects.FieldTest" name="testPartOfField2" time="0"/>
-  <testcase classname="Objects.FieldTest" name="testPartOfField3" time="0.001"/>
+  <testcase classname="Objects.FieldTest" name="testGetPlayerInThisPlace" time="0"/>
+  <testcase classname="Objects.FieldTest" name="testAddPlayerOffensive" time="0"/>
+  <testcase classname="Objects.FieldTest" name="testPartOfField2" time="0.001"/>
+  <testcase classname="Objects.FieldTest" name="testPartOfField3" time="0"/>
   <testcase classname="Objects.FieldTest" name="testPartOfField4" time="0"/>
   <testcase classname="Objects.FieldTest" name="testPartOfField5" time="0"/>
   <testcase classname="Objects.FieldTest" name="testPartOfField6" time="0"/>
-  <testcase classname="Objects.FieldTest" name="testPartOfField7" time="0.001"/>
-  <testcase classname="Objects.FieldTest" name="testPartOfField8" time="0.001"/>
-  <testcase classname="Objects.FieldTest" name="testPartOfField9" time="0.001"/>
-  <testcase classname="Objects.FieldTest" name="testGetPlayerLocations" time="0.003"/>
-  <testcase classname="Objects.FieldTest" name="testPartOfField10" time="0.001"/>
+  <testcase classname="Objects.FieldTest" name="testPartOfField7" time="0"/>
+  <testcase classname="Objects.FieldTest" name="testPartOfField8" time="0"/>
+  <testcase classname="Objects.FieldTest" name="testPartOfField9" time="0"/>
+  <testcase classname="Objects.FieldTest" name="testPartOfField" time="0"/>
+  <testcase classname="Objects.FieldTest" name="testAddPlayerDefensive" time="0"/>
+  <testcase classname="Objects.FieldTest" name="testGetPlayerDef" time="0"/>
+  <testcase classname="Objects.FieldTest" name="testGetPlayerOff" time="0"/>
+  <testcase classname="Objects.FieldTest" name="testGetPlayerLocations" time="0"/>
+  <testcase classname="Objects.FieldTest" name="testGetSize" time="0"/>
+  <testcase classname="Objects.FieldTest" name="testSetBallDropedY" time="0"/>
+  <testcase classname="Objects.FieldTest" name="testPlayerWIthBall" time="0"/>
+  <testcase classname="Objects.FieldTest" name="testPartOfField10" time="0"/>
+  <testcase classname="Objects.FieldTest" name="testGetLineOfSkirmishInteger" time="0"/>
   <testcase classname="Objects.FieldTest" name="testAddPlayer1" time="0"/>
+  <testcase classname="Objects.FieldTest" name="testGetBallDropedY" time="0"/>
 </testsuite>

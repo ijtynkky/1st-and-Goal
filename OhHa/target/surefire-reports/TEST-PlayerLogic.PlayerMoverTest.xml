@@ -61,13 +61,13 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMovePlayerOneStep" time="0.001"/>
+  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMovePlayerOneStep" time="0"/>
   <testcase classname="PlayerLogic.PlayerMoverTest" name="testMoveRouteVasenAlaKulma" time="0"/>
-  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMoveRouteAlasYos" time="0"/>
+  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMoveRouteAlasYos" time="0.001"/>
   <testcase classname="PlayerLogic.PlayerMoverTest" name="testMoveRouteYksiVasemmalle" time="0"/>
   <testcase classname="PlayerLogic.PlayerMoverTest" name="testMoveRouteVasenOikee" time="0"/>
   <testcase classname="PlayerLogic.PlayerMoverTest" name="testMovePlayerOneStep2" time="0"/>
   <testcase classname="PlayerLogic.PlayerMoverTest" name="testMovePlayerOneStep3" time="0"/>
-  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMovePlayerOneStep4" time="0.001"/>
+  <testcase classname="PlayerLogic.PlayerMoverTest" name="testMovePlayerOneStep4" time="0.002"/>
   <testcase classname="PlayerLogic.PlayerMoverTest" name="testMovePlayer" time="0"/>
 </testsuite>

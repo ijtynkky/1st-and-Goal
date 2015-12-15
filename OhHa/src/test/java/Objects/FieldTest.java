@@ -105,7 +105,7 @@ public class FieldTest {
      6 = Hashmark
      */
     @Test
-    public void testPartOfField1() {
+    public void testPartOfField() {
         System.out.println("partOfField");
         int[] square = {1, 1};
         Field instance = new Field(10, 9);
@@ -204,4 +204,149 @@ public class FieldTest {
         assertEquals(expResult, result);
     }
 
+    /**
+     * Test of addPlayerOffensive method, of class Field.
+     */
+    @Test
+    public void testAddPlayerOffensive() {
+        System.out.println("addPlayerOffensive");
+        int position = 1;
+        Player player = new Player(new PlayerInfo("String", 0, "String"), new RouteRunner(new int[]{1, 1}, "String", "String"));
+        Field instance = new Field(53, 20);
+        instance.addPlayerOffensive(position, player);
+        int expResult = 10;
+        int result = instance.getPlayerOff(1).getLocation()[1];
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of addPlayerDefensive method, of class Field.
+     */
+    @Test
+    public void testAddPlayerDefensive() {
+        System.out.println("addPlayerDefensive");
+        int position = 1;
+        Player player = new Player(new PlayerInfo("String", 0, "String"), new RouteRunner(new int[]{1, 1}, "String", "String"));
+        Field instance = new Field(53, 20);
+        instance.addPlayerDefensive(position, player);
+        int expResult = 12;
+        int result = instance.getPlayerDef(1).getLocation()[1];
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getPlayerOff method, of class Field.
+     */
+    @Test
+    public void testGetPlayerOff() {
+        System.out.println("getPlayerOff");
+        int position = 1;
+        Player player = new Player(new PlayerInfo("String", 0, "String"), new RouteRunner(new int[]{1, 1}, "String", "String"));
+        Field instance = new Field(53, 20);
+        instance.addPlayerOffensive(position, player);
+        Player expResult = player;
+        Player result = instance.getPlayerOff(1);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getPlayerDef method, of class Field.
+     */
+    @Test
+    public void testGetPlayerDef() {
+        System.out.println("getPlayerDef");
+        int position = 1;
+        Player player = new Player(new PlayerInfo("String", 0, "String"), new RouteRunner(new int[]{1, 1}, "String", "String"));
+        Field instance = new Field(53, 20);
+        instance.addPlayerDefensive(position, player);
+        Player expResult = player;
+        Player result = instance.getPlayerDef(1);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getPlayerInThisPlace method, of class Field.
+     */
+    @Test
+    public void testGetPlayerInThisPlace() {
+        System.out.println("getPlayerInThisPlace");
+
+        int position = 1;
+        Player player = new Player(new PlayerInfo("String", 0, "String"), new RouteRunner(new int[]{1, 1}, "String", "String"));
+        Field instance = new Field(53, 20);
+        instance.addPlayerOffensive(position, player);
+
+        int[] place = new int[]{1, 10};
+
+        Player expResult = player;
+        Player result = instance.getPlayerInThisPlace(place);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of playerWIthBall method, of class Field.
+     */
+    @Test
+    public void testPlayerWIthBall() {
+        System.out.println("playerWIthBall");
+
+        int position = 1;
+        Player player = new Player(new PlayerInfo("String", 0, "String"), new RouteRunner(new int[]{1, 1}, "String", "String"));
+        player.giveBall();
+        Field instance = new Field(53, 20);
+        instance.addPlayerOffensive(position, player);
+        Player expResult = player;
+        Player result = instance.playerWIthBall();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of setBallDropedY method, of class Field.
+     */
+    @Test
+    public void testSetBallDropedY() {
+        System.out.println("setBallDropedY");
+        int y = 10;
+        Field instance = new Field(53, 20);
+        instance.setBallDropedY(y);
+        int expResult = 10;
+        int result = instance.getBallDropedY();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getBallDropedY method, of class Field.
+     */
+    @Test
+    public void testGetBallDropedY() {
+        System.out.println("getBallDropedY");
+        Field instance = new Field(53, 20);
+        int expResult = 999;
+        int result = instance.getBallDropedY();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getLineOfSkirmishInteger method, of class Field.
+     */
+    @Test
+    public void testGetLineOfSkirmishInteger() {
+        System.out.println("getLineOfSkirmishInteger");
+        Field instance = new Field(53, 20);
+        int expResult = 9;
+        int result = instance.getLineOfSkirmishInteger();
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of getSize method, of class Field.
+     */
+    @Test
+    public void testGetSize() {
+        System.out.println("getSize");
+        Field instance = new Field(53, 20);
+        int[] expResult = new int[]{53, 20};
+        int[] result = instance.getSize();
+        assertArrayEquals(expResult, result);
+    }
 }

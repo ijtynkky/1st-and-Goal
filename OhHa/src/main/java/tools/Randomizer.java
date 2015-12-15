@@ -30,6 +30,10 @@ public class Randomizer {
         }
 
     }
+    
+    public int randomNonLinemanPlayerPosition() {
+        return 7+ this.random.nextInt(5);
+    } 
 
     public int threeOptions(int firstProba, int secondProba) {
         int a = this.random.nextInt(99) + 1;

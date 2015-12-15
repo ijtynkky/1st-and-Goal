@@ -62,8 +62,14 @@ public class MovingTool {
         }
     }
 
-    public int awayFromTheClosestOpponent(Field field, Player player) {
-        int[] awayFromThis = dt.nearestOpponentPlayerLocation(field, player);
+    public int towardsClosestOpponent(Field field, int[] playerLocation, Boolean isOffensive) {
+        int[] towardsThis = dt.nearestOpponentPlayerLocation(field, playerLocation, isOffensive);
+        return this.directonTowardsPointB(playerLocation, towardsThis);
+
+    }
+
+    public int awayClosestOpponent(Field field, Player player) {
+        int[] awayFromThis = dt.nearestOpponentPlayerLocation(field, player.getLocation(), player.askIsOffence());
         int a = player.getLocation()[0] - (awayFromThis[0] - player.getLocation()[0]);
         int b = player.getLocation()[1] - (awayFromThis[1] - player.getLocation()[1]);
         return this.directonTowardsPointB(player.getLocation(), new int[]{a, b});
@@ -118,6 +124,6 @@ public class MovingTool {
     }
 
     public boolean tackle() {
-    return random.testRandom(30);
+        return random.testRandom(30);
     }
 }

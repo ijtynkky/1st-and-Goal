@@ -111,7 +111,7 @@ public class PassRusherTest {
         boolean expResult = false;
         boolean result = instance.getIsOffensive();
         assertEquals(expResult, result);
-   }
+    }
 
     /**
      * Test of playerMoved method, of class PassRusher.
@@ -120,7 +120,7 @@ public class PassRusherTest {
     public void testPlayerMoved() {
         System.out.println("playerMoved");
         int[] where = null;
-        PassRusher instance = new PassRusher(null, "null","666");
+        PassRusher instance = new PassRusher(null, "null", "666");
         instance.playerMoved(where);
     }
 

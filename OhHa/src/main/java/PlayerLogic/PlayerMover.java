@@ -77,7 +77,6 @@ public class PlayerMover {
             }
             if (field.getPlayerInThisPlace(tryToDodge) == null) {
                 player.movePlayer(tryToDodgeInDirection);
-                System.out.println(player + "DODGE");
                 return true;
 
             } else {

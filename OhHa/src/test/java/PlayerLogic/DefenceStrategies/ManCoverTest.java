@@ -57,7 +57,8 @@ public class ManCoverTest {
         field.addPlayerOffensive(1, qb);
 
         int[] playerLocation = new int[]{5, 20};
-        ManCover instance = new ManCover(new int[]{0, 000}, qb, "J");
+        ManCover instance = new ManCover(new int[]{5, 5}, "J");
+        instance.setPlayerToFollow(qb);
         int expResult = 2;
         int result = instance.getNextMove(field, playerLocation);
         assertEquals(expResult, result);
@@ -69,7 +70,7 @@ public class ManCoverTest {
     @Test
     public void testGetStartingLocation() {
         System.out.println("getStartingLocation");
-        ManCover instance = new ManCover(new int[]{5, 5}, null, "null");
+        ManCover instance = new ManCover(new int[]{5, 5}, "null");
         int[] expResult = {5, 5};
         int[] result = instance.getStartingLocation();
         assertArrayEquals(expResult, result);
@@ -81,7 +82,7 @@ public class ManCoverTest {
     @Test
     public void testGetIcon() {
         System.out.println("getIcon");
-        ManCover instance = new ManCover(null, null, "J");
+        ManCover instance = new ManCover(null, "J");
         char expResult = 'J';
         char result = instance.getIcon();
         assertEquals(expResult, result);
@@ -93,7 +94,7 @@ public class ManCoverTest {
     @Test
     public void testGetIsOffensive() {
         System.out.println("getIsOffensive");
-        ManCover instance = new ManCover(null, null, "null");
+        ManCover instance = new ManCover(null, "null");
         boolean expResult = false;
         boolean result = instance.getIsOffensive();
         assertEquals(expResult, result);
@@ -106,7 +107,7 @@ public class ManCoverTest {
     public void testPlayerMoved() {
         System.out.println("playerMoved");
         int[] where = new int[]{666, 666};
-        ManCover instance = new ManCover(null);
+        ManCover instance = new ManCover(new int[]{5, 5}, "J");
         instance.playerMoved(where);
     }
 

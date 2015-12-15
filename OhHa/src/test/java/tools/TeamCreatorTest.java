@@ -50,11 +50,11 @@ public class TeamCreatorTest {
         Team newTeam = instance.create(teamfile);
         System.out.println(newTeam);
     }
-    
+
     @Test
     public void testCreateDEN() throws Exception {
         System.out.println("Create Denver Broncos Offence");
-        File teamfile = new File("DEN.txt");
+        File teamfile = new File("C:\\Users\\I\\Documents\\GitHub\\1st-and-Goal\\OhHa\\Files\\Teams\\DEN.txt");
         TeamCreator instance = new TeamCreator();
         Team newTeam = instance.create(teamfile);
         System.out.println(newTeam);

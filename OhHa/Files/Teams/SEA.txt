@@ -1,0 +1,30 @@
+Seattle Seahawks
+DT
+77 Ahtyba Rubin
+92 Brandon Mebane
+DE
+72 Michael Bennett
+56 Cliff Avril
+LB
+51 Bruce Irvin
+54 Bobby Wagner
+57 Mike Morgan
+50 K.J. Wright
+69 Immo Tynkkynen
+CB
+25 Richard Sherman
+26 Cary Williams
+SS
+31 Kam Chancellor
+29 Earl Thomas
+QB
+03 Russell Wilson
+WR 
+89 Doug Baldwin
+16 Tyler Lockett
+15 Jermaine Kearse
+RB
+24 Marshawn Lynch
+TE
+88 Jimmy Graham
+END 

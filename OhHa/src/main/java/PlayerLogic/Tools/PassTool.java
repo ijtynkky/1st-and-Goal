@@ -27,20 +27,20 @@ public class PassTool {
     public boolean pass(Field field, Player qb) {
         Player targetPlayer = null;
         int[] targets = qb.getQBStrategy().getPassTargets();
-        int i = 0;
-        while (i < 5) {
-            int target = getTarget(targets);
-            if (random.testRandom(targets[target])) {
-                return passBall(field, qb, field.getPlayerOff(6 + target + 1));
-            } else {
-                targets[i] = 0;
-                i++;
+        while (true) {
+            int i = 0;
+            while (i < 5) {
+                int t = getTarget(targets);
+                if (random.testRandom(targets[t])) {
+                    return passBall(field, qb, field.getPlayerOff(7 + t));
+                } else {
+                    targets[i] = 10;
+                    i++;
+                }
             }
         }
-        return false;
     }
 
-    //Simppeli versio tässä vaiheessa. Myöhemmin satunnaisuutta mukaan
     public boolean passBall(Field field, Player passer, Player reseiver) {
         System.out.println(passer + " PASSES");
         int difficulty = (int) (120 - 3 * Math.floor(dt.getDistance(passer.getLocation(), reseiver.getLocation())));
@@ -64,7 +64,7 @@ public class PassTool {
         int highest = 0;
         int i = 0;
         while (i < targets.length) {
-            if (targets[i] > highest) {
+            if (targets[i] >= highest) {
                 returnThis = i;
             }
             i++;
