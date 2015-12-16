@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package PlayerLogic.OffensiveStrategies;
 
 import Objects.Field;
@@ -11,8 +6,7 @@ import PlayerLogic.Tools.MovingTool;
 import PlayerLogic.Tools.RouteReader;
 
 /**
- *
- * @author I
+ * Pelinrakentajan strategia.
  */
 public class Quaterback implements PlayerStrategy {
 

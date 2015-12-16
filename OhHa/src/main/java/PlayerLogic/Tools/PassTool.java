@@ -23,7 +23,15 @@ public class PassTool {
         this.random = new Randomizer();
         this.dt = dt;
     }
-
+/*
+    Metodi hakee QB:n strategiasta syöttökohteet, ja päättää kenelle syöttää käyttäen
+    getTarget metodia. Metodi palauttaa syöttökohteista suurimman todennäköisyyden
+    kohteen, ja pass() metodi testaa Randomizerilla syöttääkö QB kohteelle. Jos
+    ei, niin kohteen todnäk asetetaan 10%, ja haetaan uusi suurimman tod näk kohde.
+    Metodi ei lopeta ennen kuin kohde on löytynyt.
+    Kohde on jokin hyökkäyksen pelaajista 7-11.
+    Kuh kohde on arvottu, tapahtuu passi.
+    */
     public boolean pass(Field field, Player qb) {
         Player targetPlayer = null;
         int[] targets = qb.getQBStrategy().getPassTargets();
@@ -41,6 +49,14 @@ public class PassTool {
         }
     }
 
+    
+    /*
+    PassBall kuvaa tilannetta, jossa pallollinen pelaaja heittää palloa nimetylle
+    toiselle pelaajalle. Metodiin liittyy random testeti, ja passBall joko onnistuu
+    (palautus true), tai epäonnistuu (palautus false). Onnistumisen todennäköisyyteen
+    vaikuttaa syötön matka ja lähellä olevat vastustajat. 
+    */
+    
     public boolean passBall(Field field, Player passer, Player reseiver) {
         System.out.println(passer + " PASSES");
         int difficulty = (int) (120 - 3 * Math.floor(dt.getDistance(passer.getLocation(), reseiver.getLocation())));

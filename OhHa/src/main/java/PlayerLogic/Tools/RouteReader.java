@@ -17,6 +17,9 @@ public class RouteReader {
 
     }
 
+    //Pelaajien juoksureitit (Route) ovat string muodossa, ja koostuvat numeroista
+    //route reader lukee String routen n:nen merkin, ja palauttaa sen int muodossa
+    //Itse ohjelma tulkitsee palautetun intin yhtenä suuntana, johon pelaaja seuraavaksi liikkuu
     public int readRoute(String route, int moveCounter) {
         if (route.length() <= moveCounter) {
             return -999;

@@ -12,5 +12,7 @@ PlayerLogic\RouteReaderTest.class
 PlayerLogic\Strategies\RouteRunnerTest.class
 PlayerLogic\DefenceStrategies\PassRusherTest.class
 PlayerLogic\Tools\MovingToolTest.class
+PlayerLogic\QBMoverTest.class
+PlayerLogic\Tools\PassToolTest.class
 tools\TeamCreatorTest.class
 GameLogic\MoveFrameTest.class

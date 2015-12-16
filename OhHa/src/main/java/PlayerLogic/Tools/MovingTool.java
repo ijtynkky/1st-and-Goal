@@ -22,6 +22,9 @@ public class MovingTool {
         this.dt = new DistanceTool();
     }
 
+    
+    //antaa suunnan yhden ruudun liikettä varten, kun halutaan mennä pisteestä
+    //A pisteeseen B
     public int directonTowardsPointB(int[] pointA, int[] pointB) {
         int x = pointB[0] - pointA[0];
         int y = pointB[1] - pointA[1];
@@ -53,6 +56,8 @@ public class MovingTool {
         return returnThis;
     }
 
+    
+    //antaa suunnan yhtä liikettä varten jolla pääsee pallollista pelaajaa kohti.
     public int directionTowardsPlayerWithBall(Field field, int[] playerLocation) {
         if (field.playerWIthBall().equals(null)) {
             return 5;
@@ -62,12 +67,14 @@ public class MovingTool {
         }
     }
 
+    //antaa suunnan yhtä liikettä varten jolla pääsee lähemmäksi lähintä pelaajaa
     public int towardsClosestOpponent(Field field, int[] playerLocation, Boolean isOffensive) {
         int[] towardsThis = dt.nearestOpponentPlayerLocation(field, playerLocation, isOffensive);
         return this.directonTowardsPointB(playerLocation, towardsThis);
 
     }
 
+    //antaa suunnan yhtä liikettä varten jolla pääsee kauemmaksi lähimmästä pelaajasta
     public int awayClosestOpponent(Field field, Player player) {
         int[] awayFromThis = dt.nearestOpponentPlayerLocation(field, player.getLocation(), player.askIsOffence());
         int a = player.getLocation()[0] - (awayFromThis[0] - player.getLocation()[0]);
@@ -75,7 +82,8 @@ public class MovingTool {
         return this.directonTowardsPointB(player.getLocation(), new int[]{a, b});
     }
     /*
-    
+    Väistöliike jossa palautus on enemmän tai vähemmän satunnainen suunta, joka riippuu
+    alkuperästä aikomuksesta
      */
 
     public int dodge(int preferedDirection) {
@@ -123,6 +131,7 @@ public class MovingTool {
         }
     }
 
+    //taklaustesti. True arvon palautuminen tarkoittaa onnistunutta taklausta
     public boolean tackle() {
         return random.testRandom(30);
     }

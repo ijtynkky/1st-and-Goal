@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package PlayerLogic.DefenceStrategies;
 
 import Objects.Field;
@@ -13,8 +8,7 @@ import PlayerLogic.Tools.MovingTool;
 import tools.Randomizer;
 
 /**
- *
- * @author I
+ *Puolustavan pelaajan strategia, jossa puolustajalla on alue kentällä, jota hän puolustaa.
  */
 public class ZoneCover implements DefPlayerStrategy {
 

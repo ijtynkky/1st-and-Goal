@@ -84,8 +84,8 @@ public class PlayerMover {
             }
         }
     }
-
-    public boolean tacklePlayerWithBallIfNeeded(Field field, int[] tryToMove) {
+    
+    private boolean tacklePlayerWithBallIfNeeded(Field field, int[] tryToMove) {
         if (field.getBallDropedY() != 999) {
             return false;
         } else {

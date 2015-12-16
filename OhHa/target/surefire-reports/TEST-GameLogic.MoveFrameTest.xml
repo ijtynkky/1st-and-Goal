@@ -61,6 +61,6 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="GameLogic.MoveFrameTest" name="testMove" time="0.017"/>
+  <testcase classname="GameLogic.MoveFrameTest" name="testMove" time="0.031"/>
   <testcase classname="GameLogic.MoveFrameTest" name="testGetContinuePlay" time="0"/>
 </testsuite>

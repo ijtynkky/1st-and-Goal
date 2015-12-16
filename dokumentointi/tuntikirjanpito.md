@@ -42,3 +42,18 @@ n.4h laiskasti asian pyörittelyä, rakenteen hahmottelua.
 
 4.12.15
 6h pelimekaniikan kehittämistä, se loppusuoralla. satunnaisuutta liikkeisiin
+
+10.12.15
+4h laajennusta
+
+11.12.15
+4h laajennusta
+
+12.12.15
+5h laajennusta
+
+14.12.15
+3h testien laajennus ja dokumentointi
+
+15.12.15
+2h testien laajennus ja dokumentointi
